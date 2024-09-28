@@ -6,11 +6,11 @@
 #    By: pbret <pbret@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 14:02:40 by pbret             #+#    #+#              #
-#    Updated: 2024/09/27 16:17:10 by pbret            ###   ########.fr        #
+#    Updated: 2024/09/28 15:29:07 by pbret            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	push_swap.c\
+SRCS			=	main.c\
 					parsing.c\
 					initalisation_stack.c\
 					tools_push_swap.c\

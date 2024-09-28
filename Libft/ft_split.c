@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:34:53 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/18 11:10:26 by pbret            ###   ########.fr       */
+/*   Updated: 2024/09/28 18:13:35 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ static char	*ft_alloue_and_copy_word(char const *s, int start, int end)
 	int		i;
 
 	i = 0;
-	word = ft_calloc((end - start + 1), sizeof(char));
+	word = malloc((end - start + 1) * sizeof(char));
 	if (!word)
 		return (NULL);
-	while (start < end) 
+	while (start < end)
 	{
 		word[i] = s[start];
 		i++;
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 	int			first_carac;
 	size_t		w;
 
-	tab_tab = ft_calloc(ft_nbr_words(s, c) + 1, sizeof(char *));
+	tab_tab = malloc(ft_nbr_words(s, c) + 1 * sizeof(char *));
 	if (!tab_tab)
 		return (NULL);
 	ft_init(&i, &w, &first_carac);

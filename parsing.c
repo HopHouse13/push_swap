@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:20:14 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/27 16:25:05 by pbret            ###   ########.fr       */
+/*   Updated: 2024/09/28 18:20:29 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 char    **ft_management_av(int ac, char  **av)
 {
-    int		i;
+    int     i;
 	char **tab_brut;
     
 	if(ac == 2)
 		tab_brut = ft_split(av[1], ' ');
 	if (ac > 2)
 	{
-        tab_brut = malloc (sizeof(char*) * ac - 1);
+        tab_brut = malloc (sizeof(char*) * ac); // pas de + 1 ('\0') car il prend la place du nom de l'executable
 		if (!tab_brut)
 			return (0);
 		i = 0;	
-		while (i < ac - 1) // -1 pour le nom de l 'exe.
+		while (av[i + 1])
 		{
 			tab_brut[i] = ft_strdup(av[i + 1]);
 			i++;
 		}
+        tab_brut[i] = NULL;
 	}
     return (tab_brut);
 }
@@ -61,37 +62,33 @@ int	ft_has_other_digits(char **tab)
     return (EXIT_SUCCESS);
 }
 
-int ft_has_maxs(long int *tab_int, char **tab_char) //tab_char pour pouvoir compter le nombre d'elements dans mon tableau de char
+int ft_has_maxs(char **tab_char) //tab_char pour pouvoir compter le nombre d'elements dans mon tableau de char
 {
     int i;
-    int nb_elements;
 
-    i = -1;
-    nb_elements = ft_count_elem(tab_char);
-    while(++i <= nb_elements)
+    i = 0;
+    while(tab_char[i])
     {
-        if (tab_int[i] < INT_MIN || tab_int[i] > INT_MAX)
-            return (EXIT_FAILURE);       
+        if (ft_atoi_long(tab_char[i]) < INT_MIN || ft_atoi_long(tab_char[i]) > INT_MAX)
+            return (EXIT_FAILURE);
+        i++;
     }
     return (EXIT_SUCCESS);
 }
 
-int ft_has_doublon(long int *tab_int, char **tab_char)
+int ft_has_doublon(char **tab_char)
 {
     int i;
     int j;
-    int nb_elements;
 
-    nb_elements = ft_count_elem(tab_char);
     i = 0;
-    while(i < nb_elements)
+    while(tab_char[i])
     {
-        j = i + 1; // pas de -1 car j a un indixe decale de 1 par rapport au i, faut check le dernier element de la chaine
-        while (j < nb_elements && tab_int[j])
+        j = i + 1;
+        while (tab_char[j])
         {
-            if (tab_int[i] == tab_int[j])
+            if (ft_atoi_long(tab_char[i]) == ft_atoi_long(tab_char[j]))
                 return (EXIT_FAILURE);
-            printf("[%d]\n", j);
             j++;
         }
         i++;    
@@ -99,18 +96,11 @@ int ft_has_doublon(long int *tab_int, char **tab_char)
     return (EXIT_SUCCESS);
 }
 
-long int *ft_parsing(char **tab_char)
-{
-    long int    *tab_int;
-    
-    tab_int = NULL;
-    tab_int = ft_init_tab_int(tab_int, tab_char);
-    //printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]\t", ft_has_other_digits(tab_char), ft_has_maxs(tab_int, tab_char), ft_has_doublon(tab_int, tab_char));
-	if (ft_has_other_digits(tab_char) || ft_has_maxs(tab_int, tab_char) || ft_has_doublon(tab_int, tab_char))
-    {
-        free(tab_int);
-        return (NULL);
-    }
-    return (tab_int);
+int ft_parsing(char **tab_char)
+{   
+    printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]", ft_has_other_digits(tab_char), ft_has_maxs(tab_char), ft_has_doublon(tab_char));
+	if (ft_has_other_digits(tab_char) || ft_has_maxs(tab_char) || ft_has_doublon(tab_char))
+        return (EXIT_FAILURE);
+    return (EXIT_SUCCESS);
 }
 

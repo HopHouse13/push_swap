@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:01:11 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/20 15:14:09 by pbret            ###   ########.fr       */
+/*   Updated: 2024/09/28 18:13:50 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 	int				*data;
 	struct s_list	*prev;
 	struct s_list	*next;
-}					t_list; 
+}					t_list;
 
 int			ft_is_plus_moins(int c);
 int			ft_isalnum(int c);

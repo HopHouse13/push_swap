@@ -6,13 +6,13 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/27 14:30:28 by pbret            ###   ########.fr       */
+/*   Updated: 2024/09/28 18:19:29 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
- 
+
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -27,26 +27,20 @@ typedef struct s_node
 	long int		data;
 	struct s_node	*prev;
 	struct s_node	*next;
-}					t_node; 
+}					t_node;
 
 //parsing
-long int	*ft_parsing(char **tab);
-char  	  **ft_management_av(int ac, char  **av);
+int			ft_parsing(char **tab);
+char		**ft_management_av(int ac, char **av);
 int			ft_has_other_digits(char **tab);
-int 		ft_has_maxs(long int *tab_int, char **tab_char);
-int			ft_has_doublon(long int *tab_int, char **tab_char);
+int			ft_has_maxs(char **tab_char);
+int			ft_has_doublon(char **tab_char);
 
 //tools
 long int	ft_atoi_long(char *str);
-long int	*ft_init_tab_int(long int *tab_int, char **tab_char);
-int			ft_count_elem(char **tab_char);
 
 //initalisation_stack
-void		ft_init_stack(t_node **head, long int *tab_int, char **tab_char);
-void		ft_init_head(int long nbr, t_node **head);
-void		ft_add_back(int long nbr, t_node **head);
+void		ft_init_head(int nbr, t_node **head);
+void		ft_add_back(int nbr, t_node **head);
 void		ft_free(t_node **head);
-
-
-
 #endif
