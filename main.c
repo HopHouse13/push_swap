@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/28 18:15:23 by pbret            ###   ########.fr       */
+/*   Updated: 2024/09/30 11:00:33 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 			ft_add_back(ft_atoi_long(tab_brut[i]), head_a);
 			i++;
 		} */
+	
 		write(1,"\n[v]\n\n", 6);
 	}
 
@@ -38,6 +39,7 @@ int	main(int ac, char **av)
 		printf("\n\n[%ld]", tempo->data);
 		tempo = tempo->next;
 	} */
+	ft_free_tab(tab_brut);
 	return (0);
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools_push_swap.c                                  :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/28 18:18:55 by pbret            ###   ########.fr       */
+/*   Updated: 2024/09/30 12:47:17 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,18 @@ long int	ft_atoi_long(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 		resultat = resultat * 10 + (str[i++] - '0');
 	return (resultat * sign);
+}
+
+void	ft_free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	if (tab != NULL)
+	{
+		while (tab[i])
+			free(tab[i++]);
+		free(tab);
+	}
+	return ;
 }
