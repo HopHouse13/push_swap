@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/30 11:00:33 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/07 17:39:49 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,43 @@
 
 int	main(int ac, char **av)
 {
+	t_node		*head_a = NULL;
+	t_node		*head_b = NULL;
 	char		**tab_brut;
-	/* t_node		**head_a = NULL;
-	int 			i;
 
-	i = 0; */
-	tab_brut = ft_management_av(ac, av); // ft qui met les argv dans un tableau e tableau de char (brut)
-	if (ft_parsing(tab_brut)) // retour 1 >>> error, 0 >>> validé
-		write(2,"\n\n[error]\n", 10);
-	else
+	if (ac > 1)
 	{
-		/* while (tab_brut[i])
+		tab_brut = ft_management_av(ac, av); // ft qui met les argv dans un tableau e tableau de char (brut)
+		if (ft_parsing(tab_brut)) // retour 1 >>> error, 0 >>> validé
+			ft_printf(RED"\n[error]\n\n"RESET);
+		else
 		{
-			ft_add_back(ft_atoi_long(tab_brut[i]), head_a);
-			i++;
-		} */
-	
-		write(1,"\n[v]\n\n", 6);
+			ft_init_list(tab_brut, &head_a);
+			ft_init_list(tab_brut, &head_b);
+			ft_free_tab(tab_brut);
+			ft_printf(GREEN"\n[parsing valide]\n\n"RESET);
+		}
+		if(head_a != NULL)
+		{
+			ft_printf(CYAN"stack_a\n\n");
+			ft_print_list(&head_a);
+			ft_push(&head_a, &head_b);
+			ft_ss(&head_a, &head_b);
+			ft_print_list(&head_a);
+			ft_printf("\n\n"RESET);
+			ft_free_list(&head_a);
+		}
+		
+		if (head_b != NULL)
+		{
+			ft_printf(YELLOW"stack_b\n\n");
+			ft_print_list(&head_b);
+			ft_push(&head_b, &head_a);
+			ft_print_list(&head_b);
+			ft_printf("\n\n"RESET);
+			ft_free_list(&head_b);
+		}
 	}
-
-/* 	t_node *tempo = *head_a;
-	while (tempo->next != NULL)
-	{
-		printf("\n\n[%ld]", tempo->data);
-		tempo = tempo->next;
-	} */
-	ft_free_tab(tab_brut);
-	return (0);
+	return (EXIT_SUCCESS);
 }
-
-/* int	main(void)
-{
-	t_node	*head;
-
-	ft_init_lst(10, &head);
-	ft_add_back(20, &head);
-	ft_add_back(30, &head);
-	ft_add_back(40, &head);
-	ft_add_back(50, &head);
-
-	t_node	*tempo;
-
-	tempo = head;
-	while (tempo != NULL)
-	{
-		printf("value [%d]\n", tempo->data);
-		tempo = tempo->next;
-	}
-	ft_free(&head);
-	return (0);
-} */
 

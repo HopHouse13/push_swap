@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:20:14 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/30 18:25:37 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/01 17:19:49 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char    **ft_management_av(int ac, char  **av)
 	char **tab_brut;
     
 	if(ac == 2)
-		tab_brut = split(av[1]);
+		tab_brut = ft_split_argv(av[1]);
 	if (ac > 2)
 	{
         tab_brut = malloc (sizeof(char*) * ac); // pas de + 1 ('\0') car il prend la place du nom de l'executable
@@ -98,7 +98,7 @@ int ft_has_doublon(char **tab_char)
 
 int ft_parsing(char **tab_char)
 {   
-    printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]", ft_has_other_digits(tab_char), ft_has_maxs(tab_char), ft_has_doublon(tab_char));
+    //printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]", ft_has_other_digits(tab_char), ft_has_maxs(tab_char), ft_has_doublon(tab_char));
 	if (ft_has_other_digits(tab_char) || ft_has_maxs(tab_char) || ft_has_doublon(tab_char))
         return (EXIT_FAILURE);
     return (EXIT_SUCCESS);

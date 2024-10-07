@@ -6,7 +6,7 @@
 #    By: pbret <pbret@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 14:02:40 by pbret             #+#    #+#              #
-#    Updated: 2024/09/30 18:21:06 by pbret            ###   ########.fr        #
+#    Updated: 2024/10/07 16:22:24 by pbret            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,13 @@ SRCS			=	main.c\
 					parsing.c\
 					initalisation_stack.c\
 					tools.c\
-					split.c\
+					split_argv.c\
+					moves_stack.c\
+					instructions.c\
+					instructions_1.c\
+					instructions_2.c\
+
+
 				
 
 #BONUS			=	

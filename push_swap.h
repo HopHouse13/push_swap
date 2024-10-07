@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/30 18:25:47 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/07 16:26:27 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,19 @@
 # include "Libft/libft.h"
 # include <limits.h>
 
+# define RESET "\033[0m"
+# define BLACK "\033[30m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define BLUE "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN "\033[36m"
+# define WHITE "\033[37m"
+
 typedef struct s_node
 {
-	long int		data;
+	int	long		data;
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_node;
@@ -41,16 +51,38 @@ long int	ft_atoi_long(char *str);
 void		ft_free_tab(char **tab);
 
 //initalisation_stack
-void		ft_init_head(int nbr, t_node **head);
-void		ft_add_back(int nbr, t_node **head);
-void		ft_free(t_node **head);
+void		ft_init_list(char **tab_brut, t_node **head);
+void		ft_init_head(long int nbr, t_node **head);
+void		ft_add_back(long int nbr, t_node **head);
+void		ft_free_list(t_node **head);
+void		ft_print_list(t_node **head);
 
-//split
+//split_argv
 void		ft_strncpy(char *str1, char *str2, int nb);
-int			count_words(char *str);
+int			ft_count_words(char *str);
 char		**ft_initialisation_tab(char **tab, char *str);
-char		**split(char *str);
+char		**ft_split_argv(char *str);
 
+//moves_stack
+void		ft_swap(t_node **head);
+void		ft_rotate(t_node **head);
+void		ft_reverse_rotate(t_node **head);
+void		ft_push(t_node **head_from, t_node **head_to);
 
+//instructions
+void	ft_sa(t_node **head);
+void	ft_sb(t_node **head);
+void	ft_ss(t_node **head_a, t_node **head_b);
+void	ft_ra(t_node **head);
+void	ft_rb(t_node **head);
 
+//intructions_1
+void	ft_rr(t_node **head_a, t_node **head_b);
+void	ft_rra(t_node **head);
+void	ft_rrb(t_node **head);
+void	ft_rrr(t_node **head_a, t_node **head_b);
+void	ft_pa(t_node **head_from, t_node **head_to);
+
+//intructions_2
+void	ft_pb(t_node **head_from, t_node **head_to);
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   split_argv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:19:02 by pbret             #+#    #+#             */
-/*   Updated: 2024/09/30 18:27:09 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/01 17:27:40 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_strncpy(char *str1, char *str2, int nb)
 	str1[i] = '\0';
 	return ;
 }
-int	count_words(char *str)
+int	ft_count_words(char *str)
 {
 	int		i;
 	int		word;
@@ -78,12 +78,12 @@ char	**ft_initialisation_tab(char **tab, char *str)
 	tab[j] = NULL;
 	return (tab);
 }
-char **split(char *str)
+char **ft_split_argv(char *str)
 {
 	char	**tab;
 	int		nb_words;
 
-	nb_words = count_words(str);
+	nb_words = ft_count_words(str);
 	tab = malloc(sizeof(char *) * (nb_words + 1));
 	if(!tab)
 		return (NULL);
