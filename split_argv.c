@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:19:02 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/01 17:27:40 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 11:03:02 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,21 @@ void	ft_strncpy(char *str1, char *str2, int nb)
 	str1[i] = '\0';
 	return ;
 }
+
 int	ft_count_words(char *str)
 {
 	int		i;
 	int		word;
-	int 	flag;
+	int		flag;
 
 	i = 0;
 	word = 0;
 	flag = 0;
-	while(str[i])
+	while (str[i])
 	{
-		while(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 				i++;
-		while(str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i])
+		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i])
 		{
 			flag = 1;
 			i++;
@@ -63,10 +64,10 @@ char	**ft_initialisation_tab(char **tab, char *str)
 	start = 0;
 	while (str[i])
 	{
-		while(str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
 			i++;
 		start = i;
-		while(str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
 			i++;
 		if (i > start)
 		{
@@ -78,14 +79,15 @@ char	**ft_initialisation_tab(char **tab, char *str)
 	tab[j] = NULL;
 	return (tab);
 }
-char **ft_split_argv(char *str)
+
+char	**ft_split_argv(char *str)
 {
 	char	**tab;
 	int		nb_words;
 
 	nb_words = ft_count_words(str);
 	tab = malloc(sizeof(char *) * (nb_words + 1));
-	if(!tab)
+	if (!tab)
 		return (NULL);
 	ft_initialisation_tab(tab, str);
 	return (tab);

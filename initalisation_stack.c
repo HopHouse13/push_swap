@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/07 15:55:19 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 18:54:18 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_init_list(char **tab_brut, t_node **head)
 
 	i = 0;
 	while (tab_brut[i])
-			ft_add_back(ft_atoi_long(tab_brut[i++]), head);
+			ft_add_end(ft_atoi_long(tab_brut[i++]), head);
 }
 
 void	ft_init_head(long int nbr, t_node **head)
@@ -31,13 +31,34 @@ void	ft_init_head(long int nbr, t_node **head)
 		new = NULL;
 		return ;
 	}
-	new -> data = nbr;
-	new -> prev = NULL;
-	new -> next = NULL;
+	new->data = nbr;
+	new->prev = NULL;
+	new->next = NULL;
 	*head = new;
 }
 
-void	ft_add_back(long int nbr, t_node **head)
+void	ft_add_start(long int nbr, t_node **head)
+{
+	t_node	*new;
+	t_node	*tempo;
+
+	if (*head == NULL)
+	{
+		ft_init_head(nbr, head);
+		return ;
+	}
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return ;
+	tempo = *head;
+	new->data = nbr;
+	new->next = tempo;
+	new->prev = NULL;
+	tempo->prev = new;
+	*head = new;
+}
+
+void	ft_add_end(long int nbr, t_node **head)
 {
 	t_node	*new;
 	t_node	*tempo;
@@ -71,6 +92,7 @@ void	ft_free_list(t_node **head)
 	}
 	free (tempo);
 }
+
 void	ft_print_list(t_node **head)
 {
 	t_node *tempo;
@@ -78,7 +100,7 @@ void	ft_print_list(t_node **head)
 	tempo = *head;
 	while (tempo)
 	{
-		printf("[%ld]\n", tempo->data);
+		ft_printf("[%d]\n", tempo->data);
 		tempo = tempo->next;
 	}
 	printf("\n\n");

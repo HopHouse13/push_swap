@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:20:14 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/01 17:19:49 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 18:27:50 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ int ft_has_doublon(char **tab_char)
 
 int ft_parsing(char **tab_char)
 {   
-    //printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]", ft_has_other_digits(tab_char), ft_has_maxs(tab_char), ft_has_doublon(tab_char));
-	if (ft_has_other_digits(tab_char) || ft_has_maxs(tab_char) || ft_has_doublon(tab_char))
+   	if (ft_has_other_digits(tab_char) || ft_has_maxs(tab_char) || ft_has_doublon(tab_char))
         return (EXIT_FAILURE);
     return (EXIT_SUCCESS);
 }
+ //printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]", ft_has_other_digits(tab_char), ft_has_maxs(tab_char), ft_has_doublon(tab_char));
 

@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/07 16:26:27 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 14:42:33 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ void		ft_free_tab(char **tab);
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);
 void		ft_init_head(long int nbr, t_node **head);
-void		ft_add_back(long int nbr, t_node **head);
+void		ft_add_end(long int nbr, t_node **head);
 void		ft_free_list(t_node **head);
 void		ft_print_list(t_node **head);
+void		ft_add_start(long int nbr, t_node **head);
+
 
 //split_argv
 void		ft_strncpy(char *str1, char *str2, int nb);
@@ -85,4 +87,5 @@ void	ft_pa(t_node **head_from, t_node **head_to);
 
 //intructions_2
 void	ft_pb(t_node **head_from, t_node **head_to);
+void	pb(t_node **head_a, t_node **head_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:22:40 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/07 17:28:13 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 11:00:55 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	ft_sb(t_node **head)
 
 void	ft_ss(t_node **head_a, t_node **head_b)
 {
-	if (*head_a != NULL && (*head_a)->next != NULL && *head_b != NULL && (*head_b)->next != NULL)
+	if (*head_a != NULL && (*head_a)->next != NULL
+		&& *head_b != NULL && (*head_b)->next != NULL)
 	{
 		ft_swap(head_a);
 		ft_swap(head_b);
 		ft_printf("ss\n");
 	}
 	else
-		ft_printf("error\n");	
-
+		ft_printf("error\n");
 }
 
 void	ft_ra(t_node **head)
@@ -48,4 +48,3 @@ void	ft_rb(t_node **head)
 	ft_rotate(head);
 	ft_printf("rb\n");
 }
-

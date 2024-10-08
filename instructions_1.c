@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:22:40 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/07 17:18:24 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 10:53:55 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_rr(t_node **head_a, t_node **head_b)
 		ft_printf("rr\n");
 	}
 	else
-		ft_printf("error\n");	
+		ft_printf("error\n");
 }
 
 void	ft_rra(t_node **head)
@@ -45,7 +45,7 @@ void	ft_rrr(t_node **head_a, t_node **head_b)
 		ft_printf("rrr\n");
 	}
 	else
-		ft_printf("error\n");	
+		ft_printf("error\n");
 }
 
 void	ft_pa(t_node **head_from, t_node **head_to)
@@ -53,4 +53,3 @@ void	ft_pa(t_node **head_from, t_node **head_to)
 	ft_push(head_from, head_to);
 	ft_printf("pa\n");
 }
-

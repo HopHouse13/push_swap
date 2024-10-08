@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:40:17 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/07 17:04:39 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 16:39:03 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_swap(t_node **head)
 {
 	t_node	*tempo;
 	int		tempo_data;
-	
-	if(*head == NULL || head == NULL || (*head)->next == NULL)
+
+	if (*head == NULL || head == NULL || (*head)->next == NULL)
 		return ;
 	tempo = *head;
 	tempo_data = tempo->data;
@@ -31,7 +31,7 @@ void	ft_rotate(t_node **head)
 	t_node	*tempo;
 	int		tempo_data_head;
 
-	if(*head == NULL || head == NULL || (*head)->next == NULL)
+	if (*head == NULL || head == NULL || (*head)->next == NULL)
 		return ;
 	tempo = *head;
 	tempo_data_head = tempo->data;
@@ -42,12 +42,13 @@ void	ft_rotate(t_node **head)
 	}
 	tempo->data = tempo_data_head;
 }
+
 void	ft_reverse_rotate(t_node **head)
 {
 	t_node	*tempo;
 	int		tempo_data_last;
 
-	if(*head == NULL || head == NULL || (*head)->next == NULL)
+	if (*head == NULL || head == NULL || (*head)->next == NULL)
 		return ;
 	tempo = *head;
 	while (tempo->next != NULL)
@@ -59,33 +60,55 @@ void	ft_reverse_rotate(t_node **head)
 		tempo = tempo->prev;
 	}
 	tempo->data = tempo_data_last;
-} 
+}
+
 void	ft_push(t_node **head_from, t_node **head_to)
 {
-	t_node		*tempo_p;
+	long int	data_tempo;
+	t_node		*tempo;
 	
-	if(*head_from == NULL || head_from == NULL)
+	if (*head_from == NULL || *head_to == NULL)
 		return ;
-	tempo_p = *head_from; 
-	*head_from = tempo_p->next;
-	tempo_p->prev = *head_to;
-	if (*head_to)
-		tempo_p->next = *head_to;
-	else
-		tempo_p->next = NULL;
-	*head_to = tempo_p;
+	tempo = *head_from;
+	data_tempo = tempo->data;
+	tempo->next->prev = NULL;
+	*head_from = tempo->next;
+	free(tempo);
+	ft_add_start(data_tempo, head_to);
 }
-	/* tempo_data = head_from->data;
-	tempo_p = head_from;
-	head_from = head_from->next;
-	free(tempo_p);
-	head_from->prev = NULL;
-	ft_add_front(tempo_data, head_to);
- */
-/* 
-	ATTENTION AUX INT ET LONG INT
-	ATTENTION ft_add_front
-	ATTENION  push_swap.h */
-	
-	
 
+/* void	ft_push(t_node **head_from, t_node **head_to)
+{
+	t_node		*tempo;
+
+	if (*head_from == NULL || head_from == NULL || *head_to == NULL)
+		return ;
+	tempo = *head_from;
+	*head_from = tempo->next;
+	tempo->prev = *head_to;
+	if (*head_to)
+		tempo->next = *head_to;
+	else
+		tempo->next = NULL;
+	*head_to = tempo;
+} */
+// void	ft_push(t_node **head_from, t_node **head_to)
+// {
+// 	long int	tempo_data;
+// 	t_node		*new;
+// 	tempo_data = *(head_from)->data;
+// 	head_from = *(head_from)->next;
+// 	free(*head_from);
+// 	new = ft_new_node(tempo_data);
+// 	if (*head_to)
+// 	{
+// 		new->next = *head_from;
+// 		new->prev = head_to;
+// 		head_to = new;
+// 	}
+// 	else
+// 	{
+// 		new->prev = head_to;
+// 		head_to = new;
+// 	}
+// }

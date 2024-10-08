@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/07 11:01:41 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/08 18:55:50 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ long int	ft_atoi_long(char *str)
 	int			i;
 	long int	sign;
 	long int	resultat;
-	
+
 	i = 0;
 	sign = 1;
 	resultat = 0;
@@ -45,12 +45,12 @@ void	ft_free_tab(char **tab)
 	}
 	return ;
 }
-/* 
+
 int	ft_count_node(t_node **head)
 {
 	t_node	*tempo;
 	int	count_node;
-	
+
 	tempo = *head;
 	count_node = 0;
 	while (tempo != NULL)
@@ -59,4 +59,4 @@ int	ft_count_node(t_node **head)
 		tempo = tempo->next;
 	}
 	return (count_node);
-} */
+}
