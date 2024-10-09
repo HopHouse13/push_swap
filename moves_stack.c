@@ -6,13 +6,13 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:40:17 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/08 16:39:03 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/09 15:20:38 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//invers les deux premieres valeurs de la stack. Les noeuds ne bougent pas.
+// invers les deux premieres valeurs de la stack. Les noeuds ne bougent pas.
 void	ft_swap(t_node **head)
 {
 	t_node	*tempo;
@@ -25,7 +25,10 @@ void	ft_swap(t_node **head)
 	tempo->data = tempo->next->data;
 	tempo->next->data = tempo_data;
 }
-
+// tempo stock la data du 1er noeud puis avec la boucle, 
+// chaque data prend la valeur de la celle d'apres.
+// la boucle s'arrete a au dernier noeud, la data du dernier noeud 
+// prend la valeur de tempo_data_head (initialement la premiere valeur).
 void	ft_rotate(t_node **head)
 {
 	t_node	*tempo;
@@ -77,38 +80,3 @@ void	ft_push(t_node **head_from, t_node **head_to)
 	ft_add_start(data_tempo, head_to);
 }
 
-/* void	ft_push(t_node **head_from, t_node **head_to)
-{
-	t_node		*tempo;
-
-	if (*head_from == NULL || head_from == NULL || *head_to == NULL)
-		return ;
-	tempo = *head_from;
-	*head_from = tempo->next;
-	tempo->prev = *head_to;
-	if (*head_to)
-		tempo->next = *head_to;
-	else
-		tempo->next = NULL;
-	*head_to = tempo;
-} */
-// void	ft_push(t_node **head_from, t_node **head_to)
-// {
-// 	long int	tempo_data;
-// 	t_node		*new;
-// 	tempo_data = *(head_from)->data;
-// 	head_from = *(head_from)->next;
-// 	free(*head_from);
-// 	new = ft_new_node(tempo_data);
-// 	if (*head_to)
-// 	{
-// 		new->next = *head_from;
-// 		new->prev = head_to;
-// 		head_to = new;
-// 	}
-// 	else
-// 	{
-// 		new->prev = head_to;
-// 		head_to = new;
-// 	}
-// }

@@ -6,7 +6,7 @@
 #    By: pbret <pbret@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 14:02:40 by pbret             #+#    #+#              #
-#    Updated: 2024/10/07 16:22:24 by pbret            ###   ########.fr        #
+#    Updated: 2024/10/09 12:15:11 by pbret            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS			=	main.c\
 					instructions.c\
 					instructions_1.c\
 					instructions_2.c\
+					sort_base.c\
 
 
 				

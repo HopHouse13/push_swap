@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/08 18:59:27 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/09 17:48:58 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,21 @@ int	main(int ac, char **av)
 		tab_brut = ft_management_av(ac, av); // ft qui met les argv dans un tableau e tableau de char (brut)
 		if (ft_parsing(tab_brut)) // retour 1 >>> error, 0 >>> validé
 		{
-			write(STDERR_FILENO, "error\n", 6);
+			write(STDERR_FILENO, "Error\n", 6);
 			ft_free_tab(tab_brut);
 		}
 		else
 		{
 			ft_init_list(tab_brut, &head_a);
 			ft_free_tab(tab_brut);
-			ft_base_sort(&head_a, &head_b);
+			if (ft_count_node(&head_a) == 1)
+				return (EXIT_SUCCESS);
+			if(ft_count_node(&head_a) >= 2 && ft_count_node(&head_a) <= 4)
+			{
+				ft_sort_base(&head_a, &head_b);
+			}// else
+			// 	ft_big_sort(&head_a, &head_b);
 		}
-		
 		if(head_a != NULL)
 			ft_free_list(&head_a);
 		if (head_b != NULL)
@@ -43,6 +48,7 @@ int	main(int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
+//printf("[%d]\n", ft_count_node(&head_a));
 /* if(head_a != NULL)
 		{
 			ft_printf(CYAN"stack_a\n\n");

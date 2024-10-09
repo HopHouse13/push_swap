@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/08 14:42:33 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/09 17:45:46 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int			ft_has_doublon(char **tab_char);
 //tools
 long int	ft_atoi_long(char *str);
 void		ft_free_tab(char **tab);
+int			ft_count_node(t_node **head);
 
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);
@@ -72,20 +73,28 @@ void		ft_reverse_rotate(t_node **head);
 void		ft_push(t_node **head_from, t_node **head_to);
 
 //instructions
-void	ft_sa(t_node **head);
-void	ft_sb(t_node **head);
-void	ft_ss(t_node **head_a, t_node **head_b);
-void	ft_ra(t_node **head);
-void	ft_rb(t_node **head);
+void		ft_sa(t_node **head);
+void		ft_sb(t_node **head);
+void		ft_ss(t_node **head_a, t_node **head_b);
+void		ft_ra(t_node **head);
+void		ft_rb(t_node **head);
 
 //intructions_1
-void	ft_rr(t_node **head_a, t_node **head_b);
-void	ft_rra(t_node **head);
-void	ft_rrb(t_node **head);
-void	ft_rrr(t_node **head_a, t_node **head_b);
-void	ft_pa(t_node **head_from, t_node **head_to);
+void		ft_rr(t_node **head_a, t_node **head_b);
+void		ft_rra(t_node **head);
+void		ft_rrb(t_node **head);
+void		ft_rrr(t_node **head_a, t_node **head_b);
+void		ft_pa(t_node **head_from, t_node **head_to);
 
 //intructions_2
-void	ft_pb(t_node **head_from, t_node **head_to);
-void	pb(t_node **head_a, t_node **head_b);
+void		ft_pb(t_node **head_from, t_node **head_to);
+
+//sort_base
+void		ft_sort_base(t_node **head_a, t_node **head_b);
+void		ft_sort_2(t_node **head_a);
+void		ft_sort_3(t_node **head_a);
+void		ft_sort_4(t_node **head_a, t_node **head_b);
+
+
+
 #endif
