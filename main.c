@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/09 17:48:58 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:25:47 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,13 @@ int	main(int ac, char **av)
 			ft_free_tab(tab_brut);
 			if (ft_count_node(&head_a) == 1)
 				return (EXIT_SUCCESS);
-			if(ft_count_node(&head_a) >= 2 && ft_count_node(&head_a) <= 4)
+			if(ft_count_node(&head_a) >= 2 && ft_count_node(&head_a) <= 5)
 			{
 				ft_sort_base(&head_a, &head_b);
 			}// else
 			// 	ft_big_sort(&head_a, &head_b);
 		}
-		if(head_a != NULL)
-			ft_free_list(&head_a);
-		if (head_b != NULL)
-			ft_free_list(&head_b);
+		ft_free_lists(&head_a, &head_b);
 	}
 	return (EXIT_SUCCESS);
 }

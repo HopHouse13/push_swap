@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/08 18:54:18 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:27:48 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,28 +80,25 @@ void	ft_add_end(long int nbr, t_node **head)
 	new->prev = tempo;
 }
 
-void	ft_free_list(t_node **head)
+void	ft_free_lists(t_node **head_a, t_node **head_b)
 {
-	t_node	*tempo;
-	
-	tempo = *head;
-	while (tempo->next != NULL)
+	if (head_a != NULL)
 	{
-		tempo = tempo->next;
-		free(tempo->prev);
+		while ((*head_a)->next != NULL)
+		{
+			(*head_a) = (*head_a)->next;
+			free((*head_a)->prev);
+		}
+		free ((*head_a));
 	}
-	free (tempo);
+	if (head_b != NULL)
+	{
+		while ((*head_b)->next != NULL)
+		{
+			(*head_b) = (*head_b)->next;
+			free((*head_b)->prev);
+		}
+		free ((*head_b));
+	}
 }
 
-void	ft_print_list(t_node **head)
-{
-	t_node *tempo;
-
-	tempo = *head;
-	while (tempo)
-	{
-		ft_printf("[%d]\n", tempo->data);
-		tempo = tempo->next;
-	}
-	printf("\n\n");
-}

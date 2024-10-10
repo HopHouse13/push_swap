@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:40:17 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/09 15:20:38 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:49:33 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,19 @@ void	ft_push(t_node **head_from, t_node **head_to)
 	long int	data_tempo;
 	t_node		*tempo;
 	
-	if (*head_from == NULL || *head_to == NULL)
+	if (*head_from == NULL || head_from == NULL)
 		return ;
 	tempo = *head_from;
 	data_tempo = tempo->data;
-	tempo->next->prev = NULL;
-	*head_from = tempo->next;
-	free(tempo);
+	if (tempo->next != NULL)
+	{
+		*head_from = tempo->next;
+		tempo->next->prev = NULL;
+		free(tempo);
+	}
+	else
+		head_from = NULL;
+	// free(tempo);   !!!! Si je free le noeud a supp, il y a un free en trop a la fin.
 	ft_add_start(data_tempo, head_to);
 }
 

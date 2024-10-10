@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/08 18:55:50 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/10 18:57:05 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,69 @@ int	ft_count_node(t_node **head)
 	}
 	return (count_node);
 }
+void	ft_print_list(t_node **head)
+{
+	t_node *tempo;
+
+	tempo = *head;
+	while (tempo)
+	{
+		ft_printf("[%d]\n", tempo->data);
+		tempo = tempo->next;
+	}
+	printf("\n\n");
+}
+t_node	*ft_find_val_min(t_node **head)
+{
+	t_node	*val_min;
+	t_node	*tmp;
+	
+	if (*head == NULL || head == NULL)
+		return (NULL);
+	tmp = *head;
+	val_min = *head;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		if (tmp->prev->data > tmp->data)
+			val_min = tmp;
+	}
+	return (val_min);
+}
+
+/* {
+	t_node	*tmp;
+	
+	tmp = *head;
+	if (*head == NULL || head == NULL)
+		return (NULL);
+	while (tmp->next != NULL || tmp->data <)
+	{
+		
+	}
+	return (val_min);
+} */
+
+
+
+
+
+// renvoi le noeud ou la data est la plus pti
+/* {
+	t_node	*val_min;
+	t_node	*tmp;
+	
+	if (*head == NULL || head == NULL)
+		return (NULL);
+	tmp = *head;
+	val_min = *head;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		if (tmp->prev->data > tmp->data)
+			val_min = tmp->prev;
+		else
+			val_min = tmp;
+	}
+	return (val_min);
+} */
