@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/10 15:25:47 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/11 14:53:21 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,27 @@ int	main(int ac, char **av)
 			}// else
 			// 	ft_big_sort(&head_a, &head_b);
 		}
-		ft_free_lists(&head_a, &head_b);
+		printf("pointeurB>>>%p\n", head_a);
+		if (head_a != NULL)
+		{
+			while (head_a->next != NULL)
+			{
+				head_a = head_a->next;
+				free(head_a->prev);
+			}
+			free (head_a);
+		}
+		printf("pointeurB>>>%p\n", head_b);
+		if (head_b != NULL)
+		{
+			while (head_b->next != NULL)
+			{
+				head_b = head_b->next;
+				free(head_b->prev);
+			}
+			free (head_b);
+		}
+	//	ft_free_lists(&head_a, &head_b);
 	}
 	return (EXIT_SUCCESS);
 }

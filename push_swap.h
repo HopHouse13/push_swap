@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/10 16:08:37 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/11 15:14:04 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ long int	ft_atoi_long(char *str);
 void		ft_free_tab(char **tab);
 int			ft_count_node(t_node **head);
 void		ft_print_list(t_node **head);
-t_node		*ft_find_val_min(t_node **head);
+long int	ft_find_val_min(t_node **head);
 
 
 //initalisation_stack
