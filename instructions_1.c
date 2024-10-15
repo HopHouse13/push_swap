@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:22:40 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/08 10:53:55 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/14 16:59:48 by fHea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void	ft_rr(t_node **head_a, t_node **head_b)
 	{
 		ft_rotate(head_a);
 		ft_rotate(head_b);
-		ft_printf("rr\n");
+		write(STDOUT_FILENO, "rr\n", 3);
 	}
 	else
-		ft_printf("error\n");
+		write(STDERR_FILENO, "error\n", 6);
 }
 
 void	ft_rra(t_node **head)
 {
 	ft_reverse_rotate(head);
-	ft_printf("rra\n");
+	write(STDOUT_FILENO, "rra\n", 4);
 }
 
 void	ft_rrb(t_node **head)
 {
 	ft_reverse_rotate(head);
-	ft_printf("rrb\n");
+	write(STDOUT_FILENO, "rrb\n", 4);
 }
 
 void	ft_rrr(t_node **head_a, t_node **head_b)
@@ -42,14 +42,14 @@ void	ft_rrr(t_node **head_a, t_node **head_b)
 	{
 		ft_reverse_rotate(head_a);
 		ft_reverse_rotate(head_b);
-		ft_printf("rrr\n");
+		write(STDOUT_FILENO, "rrr\n", 4);
 	}
 	else
-		ft_printf("error\n");
+		write(STDERR_FILENO, "error\n", 6);
 }
 
 void	ft_pa(t_node **head_from, t_node **head_to)
 {
 	ft_push(head_from, head_to);
-	ft_printf("pa\n");
+	write(STDOUT_FILENO, "pa\n", 3);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:22:40 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/07 16:24:23 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/14 16:59:41 by fHea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_pb(t_node **head_from, t_node **head_to)
 {
 	ft_push(head_from, head_to);
-	ft_printf("pb\n");
+	write(STDOUT_FILENO, "pb\n", 3);
 }

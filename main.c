@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/11 14:53:21 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/15 11:44:33 by fHea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 			}// else
 			// 	ft_big_sort(&head_a, &head_b);
 		}
-		printf("pointeurB>>>%p\n", head_a);
+		printf("pointeurA>>>%p\n", head_a);
 		if (head_a != NULL)
 		{
 			while (head_a->next != NULL)
@@ -68,7 +68,7 @@ int	main(int ac, char **av)
 //printf("[%d]\n", ft_count_node(&head_a));
 /* if(head_a != NULL)
 		{
-			ft_printf(CYAN"stack_a\n\n");
+			printf(CYAN"stack_a\n\n");
 			ft_print_list(&head_a);
 			ft_sa(&head_a);
 			ft_ra(&head_a);
@@ -77,19 +77,19 @@ int	main(int ac, char **av)
 			ft_rr(&head_a, &head_b);
 			ft_rra(&head_a);
 			ft_rrr(&head_a, &head_b);
-			ft_printf("\n\n");
+			printf("\n\n");
 			ft_print_list(&head_a);
-			ft_printf("\n\n"RESET);
+			printf("\n\n"RESET);
 		}
 		if (head_b != NULL)
 		{
-			ft_printf(YELLOW"stack_b\n\n");
+			printf(YELLOW"stack_b\n\n");
 			ft_print_list(&head_b);
 			ft_sa(&head_b);
 			ft_rb(&head_b);
 			ft_rrb(&head_b);
 			ft_pa(&head_b, &head_a);
-			ft_printf("\n\n");
+			printf("\n\n");
 			ft_print_list(&head_b);
-			ft_printf("\n\n"RESET);
+			printf("\n\n"RESET);
 		} */

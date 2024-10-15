@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/11 15:14:04 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/15 11:44:46 by fHea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "push_swap.h"
-# include "Printf/ft_printf.h"
 # include "Libft/libft.h"
 # include <limits.h>
 

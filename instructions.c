@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:22:40 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/09 15:57:00 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/15 11:37:56 by fHea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_sa(t_node **head)
 {
 	ft_swap(head);
-	ft_printf("sa\n");
+	write(STDOUT_FILENO, "sa\n", 3);
 }
 
 void	ft_sb(t_node **head)
 {
 	ft_swap(head);
-	ft_printf("sb\n");
+	write(STDOUT_FILENO, "sb\n", 3);
 }
 
 void	ft_ss(t_node **head_a, t_node **head_b)
@@ -31,20 +31,20 @@ void	ft_ss(t_node **head_a, t_node **head_b)
 	{
 		ft_swap(head_a);
 		ft_swap(head_b);
-		ft_printf("ss\n");
+		write(STDOUT_FILENO, "ss\n", 3);
 	}
 	else
-		ft_printf("error\n");
+		write(STDOUT_FILENO, "error\n", 6);
 }
 
 void	ft_ra(t_node **head)
 {
 	ft_rotate(head);
-	ft_printf("ra\n");
+	write(STDOUT_FILENO, "ra\n", 3);
 }
 
 void	ft_rb(t_node **head)
 {
 	ft_rotate(head);
-	ft_printf("rb\n");
+	write(STDOUT_FILENO, "rb\n", 3);
 }

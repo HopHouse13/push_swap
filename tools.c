@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/11 15:14:47 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/15 12:04:27 by fHea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_print_list(t_node **head)
 	tempo = *head;
 	while (tempo)
 	{
-		ft_printf("[%d]\n", tempo->data);
+		printf("[%ld]\n", tempo->data);
 		tempo = tempo->next;
 	}
 	printf("\n\n");
