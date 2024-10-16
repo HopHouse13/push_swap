@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_base.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/15 17:11:08 by fHea             ###   ########.fr       */
+/*   Updated: 2024/10/16 12:23:56 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@ void	ft_sort_3(t_node **head_a)
 void	ft_sort_4(t_node **head_a, t_node **head_b)
 {
 	int			nb_node;
-	long int	val_min;
-	t_node		*tmp_a;
-	
+	//long int	val_min;
+/* 	int i;
+	i = 1 */
+	;
 	ft_print_list(head_a);
 	ft_print_list(head_b);
 	printf("-----------1------------\n");
@@ -65,21 +66,13 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 	ft_print_list(head_a);
 	ft_print_list(head_b);
 	printf("-----------3------------\n");
-	tmp_a = *head_a;
 	nb_node = 0;
-	while ((*head_b)->data > (*head_a)->data && tmp_a->next != NULL) // Quand je  remplace "tmp_a" par (*head_a), lors des ra, ca supprime mes noeuds
-	{		printf("%d\n", nb_node);	
+	while ((*head_b)->data > (*head_a)->data)
+	{
 		if (nb_node == ft_count_node(head_a))
-		{
-		printf("(%d)\n", ft_count_node(head_a));
-			ft_ra(head_a);
 			break ;
-		}
 		ft_ra(head_a);
 		nb_node++;
-		tmp_a = tmp_a->next;
-		// printf("data_tmp(%ld)\n", tmp_a->data);
-		// printf("data_head_a(%ld)\n", (*head_a)->data);
 	}
 	ft_print_list(head_a);
 	ft_print_list(head_b);
@@ -88,7 +81,10 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 	ft_print_list(head_a);
 	ft_print_list(head_b);
 	printf("----------5------------\n");
-	val_min = ft_find_val_min(head_a);
+	printf("find_val_min[%ld]\n", ft_find_val_min(head_a));
+	while (/* i-- */((*head_a)->data =! ft_find_val_min(head_a)))
+		ft_ra(head_a);
+	/* val_min = ft_find_val_min(head_a);
 	tmp_a = *head_a;
 	while (tmp_a->next != NULL)
 	{
@@ -96,7 +92,7 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 			break ;
 		ft_ra(&tmp_a);
 		tmp_a = tmp_a->next;
-	}
+	} */
 	ft_print_list(head_a);
 	ft_print_list(head_b);
 	printf("-----------------------\n");
