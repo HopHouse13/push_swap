@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/15 12:04:27 by fHea             ###   ########.fr       */
+/*   Updated: 2024/10/16 19:56:59 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,40 +89,26 @@ long int	ft_find_val_min(t_node **head)
 	}
 	return (val_min->data);
 }
-
-/* {
-	t_node	*tmp;
+void	ft_push_to_good_position(t_node **head_from, t_node **head_to)
+{
+	int nb_node;
 	
-	tmp = *head;
-	if (*head == NULL || head == NULL)
-		return (NULL);
-	while (tmp->next != NULL || tmp->data <)
+	nb_node = 0;
+	while ((*head_from)->data > (*head_to)->data)
 	{
-		
+		if (nb_node == ft_count_node(head_to))
+			break ;
+		ft_ra(head_to);
+		nb_node++;
 	}
-	return (val_min);
-} */
-
-
-
-
-
-// renvoi le noeud ou la data est la plus pti
-/* {
-	t_node	*val_min;
-	t_node	*tmp;
-	
-	if (*head == NULL || head == NULL)
-		return (NULL);
-	tmp = *head;
-	val_min = *head;
-	while (tmp->next != NULL)
+	ft_pa(head_from, head_to);
+	nb_node = 0;
+	while ((*head_from)->data > (*head_to)->data)
 	{
-		tmp = tmp->next;
-		if (tmp->prev->data > tmp->data)
-			val_min = tmp->prev;
-		else
-			val_min = tmp;
+		if (nb_node == ft_count_node(head_to))
+			break ;
+		ft_ra(head_to);
+		nb_node++;
 	}
-	return (val_min);
-} */
+	ft_pa(head_from, head_to);
+}

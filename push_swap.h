@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/15 11:44:46 by fHea             ###   ########.fr       */
+/*   Updated: 2024/10/16 19:58:02 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void		ft_free_tab(char **tab);
 int			ft_count_node(t_node **head);
 void		ft_print_list(t_node **head);
 long int	ft_find_val_min(t_node **head);
+void		ft_push_to_good_position(t_node **head_from, t_node **head_to);
+
 
 
 //initalisation_stack
@@ -95,7 +97,8 @@ void		ft_sort_base(t_node **head_a, t_node **head_b);
 void		ft_sort_2(t_node **head_a);
 void		ft_sort_3(t_node **head_a);
 void		ft_sort_4(t_node **head_a, t_node **head_b);
+void		ft_sort_5(t_node **head_a, t_node **head_b);
 
 
-
+void	ft_test(t_node **head_a, t_node **head_b);
 #endif

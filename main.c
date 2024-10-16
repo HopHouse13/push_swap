@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/15 11:44:33 by fHea             ###   ########.fr       */
+/*   Updated: 2024/10/16 16:28:28 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	main(int ac, char **av)
 			}// else
 			// 	ft_big_sort(&head_a, &head_b);
 		}
-		printf("pointeurA>>>%p\n", head_a);
 		if (head_a != NULL)
 		{
 			while (head_a->next != NULL)
@@ -50,7 +49,6 @@ int	main(int ac, char **av)
 			}
 			free (head_a);
 		}
-		printf("pointeurB>>>%p\n", head_b);
 		if (head_b != NULL)
 		{
 			while (head_b->next != NULL)
