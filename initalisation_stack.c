@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initalisation_stack.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/14 16:44:54 by fHea             ###   ########.fr       */
+/*   Updated: 2024/10/17 17:31:14 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ void	ft_init_head(long int nbr, t_node **head)
 	new->data = nbr;
 	new->prev = NULL;
 	new->next = NULL;
+	new->replaced = 0;
 	*head = new;
 }
-
-void	ft_add_start(long int nbr, t_node **head)
+// ft pour les pushs
+void	ft_add_start(long int nbr, int replaced, t_node **head)
 {
 	t_node	*new;
 	t_node	*tempo;
@@ -52,12 +53,13 @@ void	ft_add_start(long int nbr, t_node **head)
 		return ;
 	tempo = *head;
 	new->data = nbr;
+	new->replaced = replaced;
 	new->next = tempo;
 	new->prev = NULL;
 	tempo->prev = new;
 	*head = new;
 }
-
+// pour initialiser la stack_a au debut
 void	ft_add_end(long int nbr, t_node **head)
 {
 	t_node	*new;
@@ -73,6 +75,7 @@ void	ft_add_end(long int nbr, t_node **head)
 		return ;
 	new->data = nbr;
 	new->next = NULL;
+	new->replaced = 0;
 	tempo = *head;
 	while (tempo->next != NULL)
 		tempo = tempo->next;

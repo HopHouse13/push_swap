@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/16 16:28:28 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/17 18:00:02 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int ac, char **av)
 			}// else
 			// 	ft_big_sort(&head_a, &head_b);
 		}
+		ft_initialisation_index(&head_a);
 		if (head_a != NULL)
 		{
 			while (head_a->next != NULL)

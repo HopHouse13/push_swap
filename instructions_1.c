@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fHea <fHea@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:22:40 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/14 16:59:48 by fHea             ###   ########.fr       */
+/*   Updated: 2024/10/17 16:35:11 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_rr(t_node **head_a, t_node **head_b)
 		write(STDOUT_FILENO, "rr\n", 3);
 	}
 	else
-		write(STDERR_FILENO, "error\n", 6);
+		write(STDERR_FILENO, "Error\n", 6);
 }
 
 void	ft_rra(t_node **head)
@@ -45,7 +45,7 @@ void	ft_rrr(t_node **head_a, t_node **head_b)
 		write(STDOUT_FILENO, "rrr\n", 4);
 	}
 	else
-		write(STDERR_FILENO, "error\n", 6);
+		write(STDERR_FILENO, "Error\n", 6);
 }
 
 void	ft_pa(t_node **head_from, t_node **head_to)

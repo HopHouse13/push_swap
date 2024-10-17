@@ -6,7 +6,7 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/16 19:56:59 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/17 18:04:59 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,43 +72,72 @@ void	ft_print_list(t_node **head)
 	}
 	printf("\n\n");
 }
-long int	ft_find_val_min(t_node **head)
+t_node	*ft_find_val_min(t_node **head)
 {
 	t_node	*val_min;
 	t_node	*tmp;
 	
 	if (*head == NULL || head == NULL)
-		return (STDERR_FILENO);
+		return (NULL);
 	tmp = *head;
 	val_min = *head;
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
-		tmp = tmp->next;
-		if (tmp->prev->data > tmp->data)
+		if (val_min->data > tmp->data)
 			val_min = tmp;
+		tmp = tmp->next;
 	}
-	return (val_min->data);
+	return (val_min);
 }
+//	boucle_1 : tant qu'il y a un node dans la stack from (b)
+//	boucle_2 : tant que val puch est supp que la premiere val de stack_to
+//				-> rotate stack_to + nb_node++
+//	if : si on a fait le tour de toutes les val de la stack_to
+//	cela veut dire qu'on veut push la val la plus haute de toutes les val
+//	et comme la stack_to est deja trier, 
+//	naturellement la val la plus petite se trouve en 1er
 void	ft_push_to_good_position(t_node **head_from, t_node **head_to)
 {
-	int nb_node;
-	
-	nb_node = 0;
-	while ((*head_from)->data > (*head_to)->data)
+	int	nb_node;
+
+	while (ft_count_node(head_from))
 	{
-		if (nb_node == ft_count_node(head_to))
-			break ;
-		ft_ra(head_to);
-		nb_node++;
+		nb_node = 0;
+		while ((*head_from)->data > (*head_to)->data)
+		{
+			if (nb_node == ft_count_node(head_to))
+				break ;
+			ft_ra(head_to);
+			nb_node++;
+		}
+		ft_pa(head_from, head_to);
 	}
-	ft_pa(head_from, head_to);
-	nb_node = 0;
-	while ((*head_from)->data > (*head_to)->data)
-	{
-		if (nb_node == ft_count_node(head_to))
-			break ;
-		ft_ra(head_to);
-		nb_node++;
-	}
-	ft_pa(head_from, head_to);
 }
+void	ft_initialisation_index(t_node **head)
+{
+	int		i;
+	t_node	*tmp;
+	
+	i = 1;
+	tmp = *head;
+	if (*head == NULL)
+		return ;
+	while (i < ft_count_node(head))
+	{printf("i->%d\n", i);
+		if (tmp->replaced == 0 && tmp == ft_find_val_min(&tmp))
+		{
+			tmp->replaced = i;
+			i++;
+			tmp = *head;
+		}
+		tmp = tmp->next;
+	}
+	tmp = *head;
+	while (tmp != NULL)
+	{
+		printf("[%d]\t[%ld]\n", tmp->replaced, tmp->data);
+		tmp = tmp->next;
+	}
+}
+
+
