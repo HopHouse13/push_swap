@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/17 18:04:59 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/18 15:48:25 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,16 +117,16 @@ void	ft_initialisation_index(t_node **head)
 {
 	int		i;
 	t_node	*tmp;
-	
-	i = 1;
+
+	i = 0;
 	tmp = *head;
 	if (*head == NULL)
 		return ;
 	while (i < ft_count_node(head))
-	{printf("i->%d\n", i);
-		if (tmp->replaced == 0 && tmp == ft_find_val_min(&tmp))
+	{
+		if (tmp->index == -1 && tmp == ft_find_val_min(&tmp))
 		{
-			tmp->replaced = i;
+			tmp->index = i;
 			i++;
 			tmp = *head;
 		}
@@ -135,9 +135,7 @@ void	ft_initialisation_index(t_node **head)
 	tmp = *head;
 	while (tmp != NULL)
 	{
-		printf("[%d]\t[%ld]\n", tmp->replaced, tmp->data);
+		printf("[%d]\t[%ld]\n", tmp->index, tmp->data);
 		tmp = tmp->next;
 	}
 }
-
-

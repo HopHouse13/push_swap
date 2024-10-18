@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_base.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/17 16:20:12 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/18 14:59:49 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 	ft_push_to_good_position(head_b, head_a);
 	while (((*head_a)->data != ft_find_val_min(head_a)->data))
 		ft_ra(head_a);
+	//ft_test(head_a, head_b);
+
 }
 
 void	ft_sort_5(t_node **head_a, t_node **head_b)
@@ -89,3 +91,4 @@ void	ft_test(t_node **head_a, t_node **head_b)
 	printf("-----------%d------------\n", i);
 	i++;
 }
+	

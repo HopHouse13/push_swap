@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initalisation_stack.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/17 17:31:14 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/18 15:41:40 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	ft_init_head(long int nbr, t_node **head)
 	new->data = nbr;
 	new->prev = NULL;
 	new->next = NULL;
-	new->replaced = 0;
+	new->index = -1;
 	*head = new;
 }
 // ft pour les pushs
-void	ft_add_start(long int nbr, int replaced, t_node **head)
+void	ft_add_start(long int nbr, int index, t_node **head)
 {
 	t_node	*new;
 	t_node	*tempo;
@@ -53,7 +53,7 @@ void	ft_add_start(long int nbr, int replaced, t_node **head)
 		return ;
 	tempo = *head;
 	new->data = nbr;
-	new->replaced = replaced;
+	new->index = index;
 	new->next = tempo;
 	new->prev = NULL;
 	tempo->prev = new;
@@ -75,7 +75,7 @@ void	ft_add_end(long int nbr, t_node **head)
 		return ;
 	new->data = nbr;
 	new->next = NULL;
-	new->replaced = 0;
+	new->index = -1;
 	tempo = *head;
 	while (tempo->next != NULL)
 		tempo = tempo->next;
@@ -85,7 +85,7 @@ void	ft_add_end(long int nbr, t_node **head)
 
 void	ft_free_lists(t_node **head_a, t_node **head_b)
 {
-	if (head_a != NULL)
+	if (*head_a != NULL)
 	{
 		while ((*head_a)->next != NULL)
 		{
@@ -94,7 +94,7 @@ void	ft_free_lists(t_node **head_a, t_node **head_b)
 		}
 		free ((*head_a));
 	}
-	if (head_b != NULL)
+	if (*head_b != NULL)
 	{
 		while ((*head_b)->next != NULL)
 		{
