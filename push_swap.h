@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/18 15:37:09 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/21 10:43:02 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void		ft_free_tab(char **tab);
 int			ft_count_node(t_node **head);
 void		ft_print_list(t_node **head);
 t_node		*ft_find_val_min(t_node **head);
+t_node		*ft_find_val_max(t_node **head);
 void		ft_push_to_good_position(t_node **head_from, t_node **head_to);
 void		ft_initialisation_index(t_node **head);
 

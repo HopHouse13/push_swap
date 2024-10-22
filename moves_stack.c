@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:40:17 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/17 16:40:55 by pbret            ###   ########.fr       */
+/*   Updated: 2024/10/21 11:19:31 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 // invers les deux premieres valeurs de la stack. Les noeuds ne bougent pas.
 void	ft_swap(t_node **head)
 {
-	t_node	*tempo;
-	int		tempo_data;
+	t_node	*tmp;
+	int		tmp_data;
 
 	if (*head == NULL && (*head)->next == NULL)
 		return ;
-	tempo = *head;
-	tempo_data = tempo->data;
-	tempo->data = tempo->next->data;
-	tempo->next->data = tempo_data;
+	tmp = *head;
+	tmp_data = tmp->data;
+	tmp->data = tmp->next->data;
+	tmp->next->data = tmp_data;
 }
-// tempo stock la data du 1er noeud puis avec la boucle, 
+// tmp stock la data du 1er noeud puis avec la boucle, 
 // chaque data prend la valeur de la celle d'apres.
 // la boucle s'arrete a au dernier noeud, la data du dernier noeud 
-// prend la valeur de tempo_data_head (initialement la premiere valeur).
+// prend la valeur de tmp_data_head (initialement la premiere valeur).
 void	ft_rotate(t_node **head)
 {
 	t_node	*tmp;
@@ -68,19 +68,19 @@ void	ft_reverse_rotate(t_node **head)
 void	ft_push(t_node **head_from, t_node **head_to)
 {
 	long int	data_tmp;
-	int			replaced_tmp;
+	int			index_tmp;
 	t_node		*tmp;
 	
 	if (head_from == NULL)
 		return ;
 	tmp = *head_from;
 	data_tmp = tmp->data;
-	replaced_tmp = tmp->replaced;
+	index_tmp = tmp->index;
 	if (tmp->next)
 		*head_from = tmp->next;
 	else
 		*head_from = NULL;
 	free(tmp);
-	ft_add_start(data_tmp,replaced_tmp, head_to);
+	ft_add_start(data_tmp, index_tmp, head_to);
 }
 

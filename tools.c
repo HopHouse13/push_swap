@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/18 15:48:25 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/21 14:57:45 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,46 +48,75 @@ void	ft_free_tab(char **tab)
 
 int	ft_count_node(t_node **head)
 {
-	t_node	*tempo;
+	t_node	*tmp;
 	int	count_node;
 
-	tempo = *head;
+	tmp = *head;
 	count_node = 0;
-	while (tempo != NULL)
+	while (tmp != NULL)
 	{
 		count_node += 1;
-		tempo = tempo->next;
+		tmp = tmp->next;
 	}
 	return (count_node);
 }
 void	ft_print_list(t_node **head)
 {
-	t_node *tempo;
+	t_node *tmp;
 
-	tempo = *head;
-	while (tempo)
+	tmp = *head;
+	while (tmp)
 	{
-		printf("[%ld]\n", tempo->data);
-		tempo = tempo->next;
+		printf("[%ld]\n", tmp->data);
+		tmp = tmp->next;
 	}
 	printf("\n\n");
 }
 t_node	*ft_find_val_min(t_node **head)
 {
-	t_node	*val_min;
-	t_node	*tmp;
+	long int	val_min;
+	t_node		*tmp;
 	
 	if (*head == NULL || head == NULL)
 		return (NULL);
 	tmp = *head;
-	val_min = *head;
+	val_min = INT_MAX;
 	while (tmp != NULL)
 	{
-		if (val_min->data > tmp->data)
-			val_min = tmp;
+		if (val_min > tmp->data && tmp->index == -1)
+		{
+			val_min = tmp->data;
+			tmp = *head;
+		}
 		tmp = tmp->next;
 	}
-	return (val_min);
+	tmp = *head;
+	while (val_min != tmp->data)
+		tmp = tmp->next;
+	return (tmp);
+}
+t_node	*ft_find_val_max(t_node **head)
+{
+	long int	val_max;
+	t_node		*tmp;
+	
+	if (*head == NULL || head == NULL)
+		return (NULL);
+	tmp = *head;
+	val_max = INT_MIN;
+	while (tmp != NULL)
+	{
+		if (val_max < tmp->data)
+		{
+			val_max = tmp->data;
+			tmp = *head;
+		}
+		tmp = tmp->next;
+	}
+	tmp = *head;
+	while (val_max != tmp->data)
+		tmp = tmp->next;
+	return (tmp);
 }
 //	boucle_1 : tant qu'il y a un node dans la stack from (b)
 //	boucle_2 : tant que val puch est supp que la premiere val de stack_to
@@ -124,18 +153,14 @@ void	ft_initialisation_index(t_node **head)
 		return ;
 	while (i < ft_count_node(head))
 	{
-		if (tmp->index == -1 && tmp == ft_find_val_min(&tmp))
-		{
-			tmp->index = i;
-			i++;
-			tmp = *head;
-		}
-		tmp = tmp->next;
+		tmp = ft_find_val_min(head);
+		tmp->index = i;
+		i++;
 	}
-	tmp = *head;
-	while (tmp != NULL)
+	/* tmp = *head;
+ 	while (tmp != NULL)
 	{
 		printf("[%d]\t[%ld]\n", tmp->index, tmp->data);
 		tmp = tmp->next;
-	}
+	} */
 }

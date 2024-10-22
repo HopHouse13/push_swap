@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/18 15:41:40 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/21 11:21:10 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_init_head(long int nbr, t_node **head)
 void	ft_add_start(long int nbr, int index, t_node **head)
 {
 	t_node	*new;
-	t_node	*tempo;
+	t_node	*tmp;
 
 	if (*head == NULL)
 	{
@@ -51,19 +51,19 @@ void	ft_add_start(long int nbr, int index, t_node **head)
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return ;
-	tempo = *head;
+	tmp = *head;
 	new->data = nbr;
 	new->index = index;
-	new->next = tempo;
+	new->next = tmp;
 	new->prev = NULL;
-	tempo->prev = new;
+	tmp->prev = new;
 	*head = new;
 }
 // pour initialiser la stack_a au debut
 void	ft_add_end(long int nbr, t_node **head)
 {
 	t_node	*new;
-	t_node	*tempo;
+	t_node	*tmp;
 
 	if (*head == NULL)
 	{
@@ -76,11 +76,11 @@ void	ft_add_end(long int nbr, t_node **head)
 	new->data = nbr;
 	new->next = NULL;
 	new->index = -1;
-	tempo = *head;
-	while (tempo->next != NULL)
-		tempo = tempo->next;
-	tempo->next = new;
-	new->prev = tempo;
+	tmp = *head;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->prev = tmp;
 }
 
 void	ft_free_lists(t_node **head_a, t_node **head_b)
