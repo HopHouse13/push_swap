@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/21 10:43:02 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/24 11:53:33 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@
 # define CYAN "\033[36m"
 # define WHITE "\033[37m"
 
+# define SUCCESS 0
+# define FAILURE 1
+
 typedef struct s_node
 {
 	int	long		data;
@@ -51,18 +54,17 @@ long int	ft_atoi_long(char *str);
 void		ft_free_tab(char **tab);
 int			ft_count_node(t_node **head);
 void		ft_print_list(t_node **head);
-t_node		*ft_find_val_min(t_node **head);
-t_node		*ft_find_val_max(t_node **head);
+t_node		*ft_find_node_not_index_and_val_min(t_node **head);
+t_node		*ft_find_node_index_max(t_node **head);
+t_node		*ft_find_node_index_min(t_node **head);
 void		ft_push_to_good_position(t_node **head_from, t_node **head_to);
 void		ft_initialisation_index(t_node **head);
-
-
-
+int			ft_check_if_sort(t_node **head);
 
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);
-void		ft_init_head(long int nbr, t_node **head);
-void		ft_add_end(long int nbr, t_node **head);
+void		ft_init_head(long int nbr, int index, t_node **head);
+void		ft_first_initialisation(long int nbr, int index, t_node **head);
 void		ft_free_lists(t_node **head_a, t_node **head_b);
 void		ft_add_start(long int nbr, int index, t_node **head);
 

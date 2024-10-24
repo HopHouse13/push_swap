@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/21 15:27:45 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/24 15:51:00 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,43 +63,34 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 	ft_pb(head_a, head_b);
 	ft_sort_3(head_a);
 	ft_push_to_good_position(head_b, head_a);
-	while (((*head_a)->data != ft_find_val_min(head_a)->data))
+	while (((*head_a) != ft_find_node_index_min(head_a)))
 		ft_ra(head_a);
-	//ft_test(head_a, head_b);
+	ft_test(head_a, head_b);
 }
-
-/*void	ft_sort_5(t_node **head_a, t_node **head_b)
-{
-	ft_pb(head_a, head_b);
-	ft_pb(head_a, head_b);
-	ft_sort_3(head_a);
-	//ft_sort_2(head_b);
-	ft_push_to_good_position(head_b, head_a);
-	//printf("val_min[%ld]\n", ft_find_val_min(head_a)->data);
-	v
-	//ft_test(head_a, head_b);
-}*/
+// 1) 2 boucles qui cherche l'index le plus grand pour le push en stack_b
+// 2) ft_sort_3 tri les 3 val stack_a -> la val la plus petite est en 1er
+// 	  -> push du plus grand index de B vers A puis le 2eme index qui suit
+//    donc les index les plus grands sont push en stack_a(dans l'ordre)
+//	  au-dessus de l'index le plus petite. (les 5 index sont tries)
+// 3) enfin derniere boucle pour remettre le plus petit index sur 1er node
 void	ft_sort_5(t_node **head_a, t_node **head_b)
 {
-	while (*head_a != ft_find_val_max(head_a))
+	while (*head_a != ft_find_node_index_max(head_a))
 		ft_ra(head_a);
-	ft_push(head_a, head_b);
-	while (*head_a != ft_find_val_max(head_a))
+	ft_pb(head_a, head_b);
+	while (*head_a != ft_find_node_index_max(head_a))
 		ft_ra(head_a);
-	ft_push(head_a, head_b);
+	ft_pb(head_a, head_b);
 	ft_sort_3(head_a);
-	while (*head_b != ft_find_val_max(head_b))
+	while (*head_b != ft_find_node_index_max(head_b))
 		ft_rb(head_b);
-	ft_push(head_b, head_a);
-	ft_push(head_b, head_a);
-	while (*head_a != ft_find_val_min(head_a))
-	{
-		printf("SEARCHING: %ld, NOW: %ld\n", ft_find_val_min(head_a)->data, (*head_a)->data);
-		sleep(1);
+	ft_pa(head_b, head_a);
+	ft_pa(head_b, head_a);
+	while (ft_check_if_sort(head_a) != 0)
 		ft_ra(head_a);
-	}
-	ft_test(head_a, head_b); //
+	ft_test(head_a, head_b);
 }
+//printf("SEARCHING: %ld, NOW: %ld\n", ft_find_node_index_min(head_a)->data, (*head_a)->data);
 void	ft_test(t_node **head_a, t_node **head_b)
 {
 	static int	i = 1;

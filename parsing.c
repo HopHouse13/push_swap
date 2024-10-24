@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:20:14 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/21 11:26:43 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/24 15:19:39 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char    **ft_management_av(int ac, char  **av)
 	{
         tab_brut = malloc (sizeof(char*) * ac); // pas de + 1 ('\0') car il prend la place du nom de l'executable
 		if (!tab_brut)
-			return (0);
+			return (NULL);
 		i = 0;	
 		while (av[i + 1])
 		{
@@ -52,14 +52,14 @@ int	ft_has_other_digits(char **tab)
             if (ft_isdigit(tab[i][j]))
                 is_digit = 1;
             else
-                return EXIT_FAILURE;
+                return (FAILURE);
             j++;
         }
         if (!is_digit) // Vérifie s'il y avait au moins un chiffre. si uniquement '-' ou '+' il ne rentre pas dans la boucle
-            return EXIT_FAILURE;
+            return (FAILURE);
         i++;
     }
-    return (EXIT_SUCCESS);
+    return (SUCCESS);
 }
 
 int ft_has_maxs(char **tab_char) //tab_char pour pouvoir compter le nombre d'elements dans mon tableau de char
@@ -70,10 +70,10 @@ int ft_has_maxs(char **tab_char) //tab_char pour pouvoir compter le nombre d'ele
     while(tab_char[i])
     {
         if (ft_atoi_long(tab_char[i]) < INT_MIN || ft_atoi_long(tab_char[i]) > INT_MAX)
-            return (EXIT_FAILURE);
+            return (FAILURE);
         i++;
     }
-    return (EXIT_SUCCESS);
+    return (SUCCESS);
 }
 
 int ft_has_doublon(char **tab_char)
@@ -88,18 +88,18 @@ int ft_has_doublon(char **tab_char)
         while (tab_char[j])
         {
             if (ft_atoi_long(tab_char[i]) == ft_atoi_long(tab_char[j]))
-                return (EXIT_FAILURE);
+                return (FAILURE);
             j++;
         }
         i++;    
     }
-    return (EXIT_SUCCESS);
+    return (SUCCESS);
 }
 
 int ft_parsing(char **tab_char)
 {   
    	if (ft_has_other_digits(tab_char) || ft_has_maxs(tab_char) || ft_has_doublon(tab_char))
-        return (EXIT_FAILURE);
-    return (EXIT_SUCCESS);
+        return (FAILURE);
+    return (SUCCESS);
 }
  //printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]", ft_has_other_digits(tab_char), ft_has_maxs(tab_char), ft_has_doublon(tab_char));

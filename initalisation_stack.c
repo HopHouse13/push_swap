@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/21 11:21:10 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/23 17:21:14 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_init_list(char **tab_brut, t_node **head)
 
 	i = 0;
 	while (tab_brut[i])
-			ft_add_end(ft_atoi_long(tab_brut[i++]), head);
+			ft_first_initialisation(ft_atoi_long(tab_brut[i++]), -1, head);
 }
 
-void	ft_init_head(long int nbr, t_node **head)
+void	ft_init_head(long int nbr, int index, t_node **head)
 {
 	t_node	*new;
 
@@ -34,7 +34,7 @@ void	ft_init_head(long int nbr, t_node **head)
 	new->data = nbr;
 	new->prev = NULL;
 	new->next = NULL;
-	new->index = -1;
+	new->index = index;
 	*head = new;
 }
 // ft pour les pushs
@@ -45,7 +45,7 @@ void	ft_add_start(long int nbr, int index, t_node **head)
 
 	if (*head == NULL)
 	{
-		ft_init_head(nbr, head);
+		ft_init_head(nbr, index, head);
 		return ;
 	}
 	new = malloc(sizeof(t_node));
@@ -60,14 +60,14 @@ void	ft_add_start(long int nbr, int index, t_node **head)
 	*head = new;
 }
 // pour initialiser la stack_a au debut
-void	ft_add_end(long int nbr, t_node **head)
+void	ft_first_initialisation(long int nbr, int index, t_node **head)
 {
 	t_node	*new;
 	t_node	*tmp;
 
 	if (*head == NULL)
 	{
-		ft_init_head(nbr, head);
+		ft_init_head(nbr, index, head);
 		return ;
 	}
 	new = malloc(sizeof(t_node));
@@ -75,7 +75,7 @@ void	ft_add_end(long int nbr, t_node **head)
 		return ;
 	new->data = nbr;
 	new->next = NULL;
-	new->index = -1;
+	new->index = index;
 	tmp = *head;
 	while (tmp->next != NULL)
 		tmp = tmp->next;

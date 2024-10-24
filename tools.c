@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/21 14:57:45 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/24 15:44:46 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,17 @@ void	ft_print_list(t_node **head)
 	tmp = *head;
 	while (tmp)
 	{
-		printf("[%ld]\n", tmp->data);
+		printf("index[%d]\tdata[%ld]\n",tmp->index, tmp->data);
 		tmp = tmp->next;
 	}
 	printf("\n\n");
 }
-t_node	*ft_find_val_min(t_node **head)
+// En 2 etapes:
+// - on trouve la plus petite valeur des node qui n'ont pas encore ete indexes (index enocre a -1 (non indexe)) 
+// cette valeur sera stocker dans "val_min"
+// - on repart au debut de la liste chainee et on compare chaque data avec la val_min pour
+// trouver le node avec la valeur la plus petite. On retourne le pointeur de ce node
+t_node	*ft_find_node_not_index_and_val_min(t_node **head)
 {
 	long int	val_min;
 	t_node		*tmp;
@@ -81,9 +86,9 @@ t_node	*ft_find_val_min(t_node **head)
 		return (NULL);
 	tmp = *head;
 	val_min = INT_MAX;
-	while (tmp != NULL)
+while (tmp != NULL)
 	{
-		if (val_min > tmp->data && tmp->index == -1)
+		if (val_min > tmp->data && tmp->index == -1) // indiex = -1 veut dire que le node n'a pas encore ete indexe
 		{
 			val_min = tmp->data;
 			tmp = *head;
@@ -95,26 +100,56 @@ t_node	*ft_find_val_min(t_node **head)
 		tmp = tmp->next;
 	return (tmp);
 }
-t_node	*ft_find_val_max(t_node **head)
+
+// 2 etapes:
+// - on trouve le plus petit index de la liste chainee que l'on stock dans "index_max"
+// - on reviens au debut pour comparer l'index de chaque node avec index_max pour trouver et renvoyer le node avec le plus grand index
+t_node		*ft_find_node_index_max(t_node **head)
 {
-	long int	val_max;
+	long int	index_max;
 	t_node		*tmp;
 	
 	if (*head == NULL || head == NULL)
 		return (NULL);
 	tmp = *head;
-	val_max = INT_MIN;
+	index_max = INT_MIN;
 	while (tmp != NULL)
 	{
-		if (val_max < tmp->data)
+		if (index_max < tmp->index)
 		{
-			val_max = tmp->data;
+			index_max = tmp->index;
 			tmp = *head;
 		}
 		tmp = tmp->next;
 	}
 	tmp = *head;
-	while (val_max != tmp->data)
+	while (index_max != tmp->index)
+		tmp = tmp->next;
+	return (tmp);
+}
+// 2 etapes:
+// - on trouve le plus petit index de la liste chainee que l'on stock dans "index_min"
+// - on reviens au debut pour comparer l'index de chaque node avec index_min pour trouver et renvoyer le node avec le plus petit index
+t_node		*ft_find_node_index_min(t_node **head)
+{
+	long int	index_min;
+	t_node		*tmp;
+	
+	if (*head == NULL || head == NULL)
+		return (NULL);
+	tmp = *head;
+	index_min = INT_MAX;
+	while (tmp != NULL)
+	{
+		if (index_min > tmp->index)
+		{
+			index_min = tmp->index;
+			tmp = *head;
+		}
+		tmp = tmp->next;
+	}
+	tmp = *head;
+	while (index_min != tmp->index)
 		tmp = tmp->next;
 	return (tmp);
 }
@@ -153,14 +188,27 @@ void	ft_initialisation_index(t_node **head)
 		return ;
 	while (i < ft_count_node(head))
 	{
-		tmp = ft_find_val_min(head);
+		tmp = ft_find_node_not_index_and_val_min(head);
 		tmp->index = i;
 		i++;
 	}
-	/* tmp = *head;
- 	while (tmp != NULL)
+	tmp = *head;
+ 	// while (tmp != NULL)
+	// {
+	// 	printf("[%d]\t[%ld]\n", tmp->index, tmp->data);
+	// 	tmp = tmp->next;
+	// }
+}
+int	ft_check_if_sort(t_node **head)
+{
+	t_node	*tmp;
+	
+	tmp = *head;
+	while (tmp->next != NULL)
 	{
-		printf("[%d]\t[%ld]\n", tmp->index, tmp->data);
+		if (tmp->index > tmp->next->index)
+			return (FAILURE);
 		tmp = tmp->next;
-	} */
+	}
+	return (SUCCESS);
 }

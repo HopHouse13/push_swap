@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/21 14:52:19 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/24 15:49:03 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		tab_brut = ft_management_av(ac, av); // ft qui met les argv dans un tableau e tableau de char (brut)
-		if (ft_parsing(tab_brut)) // retour 1 >>> error, 0 >>> validé
+		if (ft_parsing(tab_brut) == FAILURE) // retour 1 (FAILUIRE) >>> error, 0 (SUCCESS)>>> validé
 		{
 			write(STDERR_FILENO, "Error\n", 6);
 			ft_free_tab(tab_brut);
@@ -33,17 +33,19 @@ int	main(int ac, char **av)
 			ft_init_list(tab_brut, &head_a);
 			ft_free_tab(tab_brut);
 			ft_initialisation_index(&head_a);
-			if (ft_count_node(&head_a) == 1)
-				return (EXIT_SUCCESS);
-			if (ft_count_node(&head_a) >= 2 && ft_count_node(&head_a) <= 5)
+			if (ft_check_if_sort(&head_a) == FAILURE)
 			{
-				ft_sort_base(&head_a, &head_b);
-			}// else
-			//	ft_big_sort(&head_a, &head_b);
+				if (ft_count_node(&head_a) == 1)
+					return (SUCCESS);
+				if (ft_count_node(&head_a) >= 2 && ft_count_node(&head_a) <= 5)
+					ft_sort_base(&head_a, &head_b);
+				// else
+				//	ft_big_sort(&head_a, &head_b);
+			}
 		}
 		ft_free_lists(&head_a, &head_b);
 	}
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 
