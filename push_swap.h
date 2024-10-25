@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/24 11:53:33 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/25 16:38:50 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 
 # define SUCCESS 0
 # define FAILURE 1
+# define stack_a 2
+# define stack_b 3
 
 typedef struct s_node
 {
@@ -60,6 +62,8 @@ t_node		*ft_find_node_index_min(t_node **head);
 void		ft_push_to_good_position(t_node **head_from, t_node **head_to);
 void		ft_initialisation_index(t_node **head);
 int			ft_check_if_sort(t_node **head);
+void		ft_optimisation_rotate(t_node **head, int count_move, int flag);
+void		ft_optimisation(t_node **head, int flag);
 
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);

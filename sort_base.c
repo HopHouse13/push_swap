@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/24 15:51:00 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/25 16:54:22 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,20 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 //	  au-dessus de l'index le plus petite. (les 5 index sont tries)
 // 3) enfin derniere boucle pour remettre le plus petit index sur 1er node
 void	ft_sort_5(t_node **head_a, t_node **head_b)
-{
-	while (*head_a != ft_find_node_index_max(head_a))
-		ft_ra(head_a);
+{	ft_test(head_a, head_b); //
+	ft_optimisation(head_a, stack_a);
 	ft_pb(head_a, head_b);
-	while (*head_a != ft_find_node_index_max(head_a))
-		ft_ra(head_a);
+	ft_test(head_a, head_b); //
+	ft_optimisation(head_a, stack_a);
 	ft_pb(head_a, head_b);
+	ft_test(head_a, head_b); //
 	ft_sort_3(head_a);
-	while (*head_b != ft_find_node_index_max(head_b))
-		ft_rb(head_b);
+	ft_optimisation(head_b, stack_b);
+	ft_test(head_a, head_b); //
 	ft_pa(head_b, head_a);
 	ft_pa(head_b, head_a);
-	while (ft_check_if_sort(head_a) != 0)
-		ft_ra(head_a);
+	// ft_ra(head_a);
+	// ft_ra(head_a);
 	ft_test(head_a, head_b);
 }
 //printf("SEARCHING: %ld, NOW: %ld\n", ft_find_node_index_min(head_a)->data, (*head_a)->data);

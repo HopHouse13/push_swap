@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/24 15:44:46 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/25 17:11:21 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_print_list(t_node **head)
 		printf("index[%d]\tdata[%ld]\n",tmp->index, tmp->data);
 		tmp = tmp->next;
 	}
-	printf("\n\n");
+	printf("\n");
 }
 // En 2 etapes:
 // - on trouve la plus petite valeur des node qui n'ont pas encore ete indexes (index enocre a -1 (non indexe)) 
@@ -211,4 +211,52 @@ int	ft_check_if_sort(t_node **head)
 		tmp = tmp->next;
 	}
 	return (SUCCESS);
+}
+void	ft_optimisation_rotate(t_node **head, int position, int flag)
+{
+	if (*head)
+	{
+		int size;
+		
+		if (position <= (ft_count_node(head) / 2))
+			while (position)
+			{
+				if (flag == stack_a)
+					ft_ra(head);
+				else
+					ft_rb(head);
+				position--;
+			}
+		else
+		{
+			size = ft_count_node(head);
+			while (size - position > 0)
+			{
+				if (flag == stack_a)
+					ft_rra(head);
+				else
+					ft_rrb(head);
+				position--;
+			}
+		}
+	}
+	return ;
+}
+
+void	ft_optimisation(t_node **head, int flag)
+{
+	int	position;
+	t_node	*tmp;
+	t_node	*max;
+	
+	tmp = *head;
+	position = 0;
+	max = ft_find_node_index_max(head);
+	while (tmp != max)
+	{
+		tmp = tmp->next;
+		position++;
+	}
+	printf("val :%d \t position:%d\n", max->index, position);
+	ft_optimisation_rotate(head, position, flag);
 }
