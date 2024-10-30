@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/29 17:37:09 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/30 18:41:02 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ void		ft_sort_3(t_node **head_a, t_node ** head_b);
 void		ft_sort_4(t_node **head_a, t_node **head_b);
 void		ft_sort_5(t_node **head_a, t_node **head_b);
 
+//big_sort
+void	ft_big_sort(t_node **head_a, t_node **head_b);
 
 void	ft_test(t_node **head_a, t_node **head_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/29 17:37:17 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/30 18:42:06 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	main(int ac, char **av)
 					return (SUCCESS);
 				if (ft_count_node(&head_a) >= 2 && ft_count_node(&head_a) <= 5)
 					ft_sort_base(&head_a, &head_b);
-				// else
-				//	ft_big_sort(&head_a, &head_b);
+				else
+					ft_big_sort(&head_a, &head_b);
 			}
 		}
 		ft_free_lists(&head_a, &head_b);
