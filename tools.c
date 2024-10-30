@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/25 17:11:21 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/29 17:37:31 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,7 +199,7 @@ void	ft_initialisation_index(t_node **head)
 	// 	tmp = tmp->next;
 	// }
 }
-int	ft_check_if_sort(t_node **head)
+int	ft_head_a_is_sorted(t_node **head)
 {
 	t_node	*tmp;
 	
@@ -212,51 +212,51 @@ int	ft_check_if_sort(t_node **head)
 	}
 	return (SUCCESS);
 }
-void	ft_optimisation_rotate(t_node **head, int position, int flag)
+void	ft_optimisation_rotate(t_node **head, int position_to_start, int flag)
 {
 	if (*head)
 	{
 		int size;
 		
-		if (position <= (ft_count_node(head) / 2))
-			while (position)
+		size = position_to_start;
+		if (size <= (ft_count_node(head) / 2))
+			while (size)
 			{
 				if (flag == stack_a)
 					ft_ra(head);
 				else
-					ft_rb(head);
-				position--;
+					ft_rb(head); 
+				size--;
 			}
 		else
 		{
-			size = ft_count_node(head);
-			while (size - position > 0)
+			size = (ft_count_node(head) - position_to_start);
+			while (size)
 			{
 				if (flag == stack_a)
 					ft_rra(head);
 				else
 					ft_rrb(head);
-				position--;
+				size--;
 			}
 		}
 	}
 	return ;
 }
 
-void	ft_optimisation(t_node **head, int flag)
+void	ft_rotates_for_max_index_first(t_node **head, int flag)
 {
-	int	position;
+	int	position_to_start;
 	t_node	*tmp;
 	t_node	*max;
 	
 	tmp = *head;
-	position = 0;
+	position_to_start = 0;
 	max = ft_find_node_index_max(head);
 	while (tmp != max)
 	{
 		tmp = tmp->next;
-		position++;
+		position_to_start++;
 	}
-	printf("val :%d \t position:%d\n", max->index, position);
-	ft_optimisation_rotate(head, position, flag);
+	ft_optimisation_rotate(head, position_to_start, flag);
 }

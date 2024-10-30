@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/25 16:38:50 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/10/29 17:37:09 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@ t_node		*ft_find_node_index_max(t_node **head);
 t_node		*ft_find_node_index_min(t_node **head);
 void		ft_push_to_good_position(t_node **head_from, t_node **head_to);
 void		ft_initialisation_index(t_node **head);
-int			ft_check_if_sort(t_node **head);
-void		ft_optimisation_rotate(t_node **head, int count_move, int flag);
-void		ft_optimisation(t_node **head, int flag);
+int			ft_head_a_is_sorted(t_node **head);
+void		ft_optimisation_rotate(t_node **head, int position_to_start, int flag);
+void		ft_rotates_for_max_index_first(t_node **head, int flag);
+
 
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);
@@ -106,7 +107,7 @@ void		ft_pb(t_node **head_from, t_node **head_to);
 //sort_base
 void		ft_sort_base(t_node **head_a, t_node **head_b);
 void		ft_sort_2(t_node **head_a);
-void		ft_sort_3(t_node **head_a);
+void		ft_sort_3(t_node **head_a, t_node ** head_b);
 void		ft_sort_4(t_node **head_a, t_node **head_b);
 void		ft_sort_5(t_node **head_a, t_node **head_b);
 
