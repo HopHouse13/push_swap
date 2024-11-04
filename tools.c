@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/29 17:37:31 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/04 16:44:08 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,64 +72,12 @@ void	ft_print_list(t_node **head)
 	}
 	printf("\n");
 }
-// En 2 etapes:
-// - on trouve la plus petite valeur des node qui n'ont pas encore ete indexes (index enocre a -1 (non indexe)) 
-// cette valeur sera stocker dans "val_min"
-// - on repart au debut de la liste chainee et on compare chaque data avec la val_min pour
-// trouver le node avec la valeur la plus petite. On retourne le pointeur de ce node
-t_node	*ft_find_node_not_index_and_val_min(t_node **head)
-{
-	long int	val_min;
-	t_node		*tmp;
-	
-	if (*head == NULL || head == NULL)
-		return (NULL);
-	tmp = *head;
-	val_min = INT_MAX;
-while (tmp != NULL)
-	{
-		if (val_min > tmp->data && tmp->index == -1) // indiex = -1 veut dire que le node n'a pas encore ete indexe
-		{
-			val_min = tmp->data;
-			tmp = *head;
-		}
-		tmp = tmp->next;
-	}
-	tmp = *head;
-	while (val_min != tmp->data)
-		tmp = tmp->next;
-	return (tmp);
-}
 
-// 2 etapes:
-// - on trouve le plus petit index de la liste chainee que l'on stock dans "index_max"
-// - on reviens au debut pour comparer l'index de chaque node avec index_max pour trouver et renvoyer le node avec le plus grand index
-t_node		*ft_find_node_index_max(t_node **head)
-{
-	long int	index_max;
-	t_node		*tmp;
-	
-	if (*head == NULL || head == NULL)
-		return (NULL);
-	tmp = *head;
-	index_max = INT_MIN;
-	while (tmp != NULL)
-	{
-		if (index_max < tmp->index)
-		{
-			index_max = tmp->index;
-			tmp = *head;
-		}
-		tmp = tmp->next;
-	}
-	tmp = *head;
-	while (index_max != tmp->index)
-		tmp = tmp->next;
-	return (tmp);
-}
+// fonction uniquement pour ft_sort_4
 // 2 etapes:
 // - on trouve le plus petit index de la liste chainee que l'on stock dans "index_min"
 // - on reviens au debut pour comparer l'index de chaque node avec index_min pour trouver et renvoyer le node avec le plus petit index
+
 t_node		*ft_find_node_index_min(t_node **head)
 {
 	long int	index_min;
@@ -153,6 +101,7 @@ t_node		*ft_find_node_index_min(t_node **head)
 		tmp = tmp->next;
 	return (tmp);
 }
+// fonction uniquement pour ft_sort_4
 //	boucle_1 : tant qu'il y a un node dans la stack from (b)
 //	boucle_2 : tant que val puch est supp que la premiere val de stack_to
 //				-> rotate stack_to + nb_node++
@@ -160,6 +109,12 @@ t_node		*ft_find_node_index_min(t_node **head)
 //	cela veut dire qu'on veut push la val la plus haute de toutes les val
 //	et comme la stack_to est deja trier, 
 //	naturellement la val la plus petite se trouve en 1er
+//	while (ft_count_node(head_from)) cette condition fonctionne car cette fonction est appelee une seule fois, dans la ft_sort_4.
+//	Dans cette fonction on push un seul node dans la stack_b.
+//	Cette fonction a pour role de de push la seule valeur de la stack_b a la stack_a a la bonne place.
+//	Temps que la stack_a n'est pas a la bonne position -> ft_ra et
+//	la val seule de la stack_b est tjs en B donc la condition de la boucle principale est bonnne.
+
 void	ft_push_to_good_position(t_node **head_from, t_node **head_to)
 {
 	int	nb_node;
@@ -177,28 +132,7 @@ void	ft_push_to_good_position(t_node **head_from, t_node **head_to)
 		ft_pa(head_from, head_to);
 	}
 }
-void	ft_initialisation_index(t_node **head)
-{
-	int		i;
-	t_node	*tmp;
 
-	i = 0;
-	tmp = *head;
-	if (*head == NULL)
-		return ;
-	while (i < ft_count_node(head))
-	{
-		tmp = ft_find_node_not_index_and_val_min(head);
-		tmp->index = i;
-		i++;
-	}
-	tmp = *head;
- 	// while (tmp != NULL)
-	// {
-	// 	printf("[%d]\t[%ld]\n", tmp->index, tmp->data);
-	// 	tmp = tmp->next;
-	// }
-}
 int	ft_head_a_is_sorted(t_node **head)
 {
 	t_node	*tmp;
@@ -211,52 +145,4 @@ int	ft_head_a_is_sorted(t_node **head)
 		tmp = tmp->next;
 	}
 	return (SUCCESS);
-}
-void	ft_optimisation_rotate(t_node **head, int position_to_start, int flag)
-{
-	if (*head)
-	{
-		int size;
-		
-		size = position_to_start;
-		if (size <= (ft_count_node(head) / 2))
-			while (size)
-			{
-				if (flag == stack_a)
-					ft_ra(head);
-				else
-					ft_rb(head); 
-				size--;
-			}
-		else
-		{
-			size = (ft_count_node(head) - position_to_start);
-			while (size)
-			{
-				if (flag == stack_a)
-					ft_rra(head);
-				else
-					ft_rrb(head);
-				size--;
-			}
-		}
-	}
-	return ;
-}
-
-void	ft_rotates_for_max_index_first(t_node **head, int flag)
-{
-	int	position_to_start;
-	t_node	*tmp;
-	t_node	*max;
-	
-	tmp = *head;
-	position_to_start = 0;
-	max = ft_find_node_index_max(head);
-	while (tmp != max)
-	{
-		tmp = tmp->next;
-		position_to_start++;
-	}
-	ft_optimisation_rotate(head, position_to_start, flag);
 }

@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/23 17:21:14 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/04 11:20:39 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_init_list(char **tab_brut, t_node **head)
 
 	i = 0;
 	while (tab_brut[i])
-			ft_first_initialisation(ft_atoi_long(tab_brut[i++]), -1, head);
+		ft_first_initialisation(ft_atoi_long(tab_brut[i++]), -1, head);
 }
 
 void	ft_init_head(long int nbr, int index, t_node **head)
@@ -37,6 +37,7 @@ void	ft_init_head(long int nbr, int index, t_node **head)
 	new->index = index;
 	*head = new;
 }
+
 // ft pour les pushs
 void	ft_add_start(long int nbr, int index, t_node **head)
 {
@@ -59,6 +60,7 @@ void	ft_add_start(long int nbr, int index, t_node **head)
 	tmp->prev = new;
 	*head = new;
 }
+
 // pour initialiser la stack_a au debut
 void	ft_first_initialisation(long int nbr, int index, t_node **head)
 {
@@ -104,4 +106,3 @@ void	ft_free_lists(t_node **head_a, t_node **head_b)
 		free ((*head_b));
 	}
 }
-

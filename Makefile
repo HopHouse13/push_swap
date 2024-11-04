@@ -6,14 +6,16 @@
 #    By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 14:02:40 by pbret             #+#    #+#              #
-#    Updated: 2024/10/30 18:44:54 by ubuntu           ###   ########.fr        #
+#    Updated: 2024/11/04 16:48:30 by ubuntu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			=	main.c\
 					parsing.c\
-					initalisation_stack.c\
+					initialisation_stack.c\
+					index.c\
 					tools.c\
+					optimisation_rotate.c\
 					split_argv.c\
 					moves_stack.c\
 					instructions.c\

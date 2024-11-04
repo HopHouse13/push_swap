@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:28:55 by ubuntu            #+#    #+#             */
-/*   Updated: 2024/10/30 19:06:00 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/04 11:18:36 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_big_sort(t_node **head_a, t_node **head_b)
 {
-	//ft_test(head_a, head_b);
 	int	index_biggest;
 	int	max_bits;
 	int	i;
@@ -39,6 +38,5 @@ void	ft_big_sort(t_node **head_a, t_node **head_b)
 		while (ft_count_node(head_b) != 0)
 			ft_pa(head_b, head_a);
 		i++;
-	//ft_test(head_a, head_b);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_argv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:19:02 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/08 11:03:02 by pbret            ###   ########.fr       */
+/*   Updated: 2024/11/04 16:12:14 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_count_words(char *str)
 	while (str[i])
 	{
 		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-				i++;
+			i++;
 		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i])
 		{
 			flag = 1;

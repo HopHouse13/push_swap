@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:40:17 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/23 16:58:17 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/04 11:25:55 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_swap(t_node **head)
 // chaque data prend la valeur de la celle d'apres.
 // la boucle s'arrete a au dernier noeud, la data du dernier noeud 
 // prend la valeur de tmp_data_head (initialement la premiere valeur).
+
 void	ft_rotate(t_node **head)
 {
 	t_node	*tmp;
@@ -58,10 +59,10 @@ void	ft_reverse_rotate(t_node **head)
 {
 	t_node		*tmp;
 	long int	tmp_data;
-	int		tmp_index;
+	int			tmp_index;
 
 	if (*head == NULL || (*head)->next == NULL)
-			return ;
+		return ;
 	tmp = *head;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
@@ -82,7 +83,7 @@ void	ft_push(t_node **head_from, t_node **head_to)
 	long int	data_tmp;
 	int			index_tmp;
 	t_node		*tmp;
-	
+
 	if (head_from == NULL)
 		return ;
 	tmp = *head_from;

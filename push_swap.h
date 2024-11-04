@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/10/30 18:41:02 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/04 15:58:43 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,14 @@
 # include "Libft/libft.h"
 # include <limits.h>
 
-# define RESET "\033[0m"
-# define BLACK "\033[30m"
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define BLUE "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN "\033[36m"
-# define WHITE "\033[37m"
-
 # define SUCCESS 0
 # define FAILURE 1
-# define stack_a 2
-# define stack_b 3
+# define STACK_A 2
+# define STACK_B 3
 
 typedef struct s_node
 {
-	int	long		data;
+	int long		data;
 	int				index;
 	struct s_node	*prev;
 	struct s_node	*next;
@@ -62,9 +52,9 @@ t_node		*ft_find_node_index_min(t_node **head);
 void		ft_push_to_good_position(t_node **head_from, t_node **head_to);
 void		ft_initialisation_index(t_node **head);
 int			ft_head_a_is_sorted(t_node **head);
-void		ft_optimisation_rotate(t_node **head, int position_to_start, int flag);
+void		ft_optimisation_rotate(t_node **head, int position_to_start,
+				int flag);
 void		ft_rotates_for_max_index_first(t_node **head, int flag);
-
 
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);
@@ -72,8 +62,6 @@ void		ft_init_head(long int nbr, int index, t_node **head);
 void		ft_first_initialisation(long int nbr, int index, t_node **head);
 void		ft_free_lists(t_node **head_a, t_node **head_b);
 void		ft_add_start(long int nbr, int index, t_node **head);
-
-
 
 //split_argv
 void		ft_strncpy(char *str1, char *str2, int nb);
@@ -107,12 +95,12 @@ void		ft_pb(t_node **head_from, t_node **head_to);
 //sort_base
 void		ft_sort_base(t_node **head_a, t_node **head_b);
 void		ft_sort_2(t_node **head_a);
-void		ft_sort_3(t_node **head_a, t_node ** head_b);
+void		ft_sort_3(t_node **head_a, t_node **head_b);
 void		ft_sort_4(t_node **head_a, t_node **head_b);
 void		ft_sort_5(t_node **head_a, t_node **head_b);
 
 //big_sort
-void	ft_big_sort(t_node **head_a, t_node **head_b);
+void		ft_big_sort(t_node **head_a, t_node **head_b);
 
-void	ft_test(t_node **head_a, t_node **head_b);
+void		ft_test(t_node **head_a, t_node **head_b);
 #endif
