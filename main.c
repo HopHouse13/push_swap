@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/04 11:23:23 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/05 16:42:54 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 			ft_init_list(tab_brut, &head_a);
 			ft_free_tab(tab_brut);
 			ft_initialisation_index(&head_a);
-			if (ft_head_a_is_sorted(&head_a) == FAILURE)
+			if (ft_stack_a_is_sorted(&head_a) == FAILURE)
 			{
 				if (ft_count_node(&head_a) == 1)
 					return (SUCCESS);

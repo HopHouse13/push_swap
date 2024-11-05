@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/04 16:06:44 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:38:36 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sort_base(t_node **head_a, t_node **head_b)
 	if ((ft_count_node(head_a)) == 2)
 		ft_sort_2(head_a);
 	if ((ft_count_node(head_a)) == 3)
-		ft_sort_3(head_a, head_a);
+		ft_sort_3(head_a, head_b);
 	if ((ft_count_node(head_a)) == 4)
 		ft_sort_4(head_a, head_b);
 	if ((ft_count_node(head_a)) == 5)
@@ -63,9 +63,9 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 {
 	ft_pb(head_a, head_b);
 	ft_sort_3(head_a, head_b);
-	ft_push_to_good_position(head_b, head_a);
-	while (((*head_a) != ft_find_node_index_min(head_a)))
-		ft_ra(head_a);
+	ft_rotates_for_max_index_first(head_b, STACK_B);
+	ft_pa(head_b, head_a);
+	ft_ra(head_a);
 }
 
 // 1)	ft_rotates_for_max_index_first(x2) pour rotate et push(x2) les 2 plus grands index en head_b
@@ -88,12 +88,3 @@ void	ft_sort_5(t_node **head_a, t_node **head_b)
 	ft_ra(head_a);
 	ft_ra(head_a);
 }
-/* void	ft_test(t_node **head_a, t_node **head_b)
-{
-	static int	i = 1;
-
-	ft_print_list(head_a);
-	ft_print_list(head_b);
-	printf("-----------%d------------\n", i);
-	i++;
-} */

@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:40:24 by ubuntu            #+#    #+#             */
-/*   Updated: 2024/11/04 16:44:44 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:20:05 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@
 // - on repart au debut de la liste chainee et on compare chaque data avec la val_min pour
 // trouver le node avec la valeur la plus petite. On retourne le pointeur de ce node
 
+// index = -1 veut dire que le node n'a pas encore ete indexe, index = -1 a ete initialise lors de l'initialisation de la liste chainee
 t_node	*ft_find_node_not_index_and_val_min(t_node **head)
 {
 	long int	val_min;
 	t_node		*tmp;
-	
+
 	if (*head == NULL || head == NULL)
 		return (NULL);
 	tmp = *head;
 	val_min = INT_MAX;
-while (tmp != NULL)
+	while (tmp != NULL)
 	{
-		if (val_min > tmp->data && tmp->index == -1) // indiex = -1 veut dire que le node n'a pas encore ete indexe
+		if (val_min > tmp->data && tmp->index == -1)
 		{
 			val_min = tmp->data;
 			tmp = *head;
@@ -42,12 +43,12 @@ while (tmp != NULL)
 	return (tmp);
 }
 
- 	// while (tmp != NULL)
+	// while (tmp != NULL)
 	// {
 	// 	printf("[%d]\t[%ld]\n", tmp->index, tmp->data);
 	// 	tmp = tmp->next;
 	// }
-	
+
 void	ft_initialisation_index(t_node **head)
 {
 	int		i;
