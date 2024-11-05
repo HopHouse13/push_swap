@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/05 18:36:29 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/05 19:27:22 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_free_tab(char **tab)
 int	ft_count_node(t_node **head)
 {
 	t_node	*tmp;
-	int	count_node;
+	int		count_node;
 
 	tmp = *head;
 	count_node = 0;
@@ -64,7 +64,7 @@ int	ft_count_node(t_node **head)
 int	ft_stack_a_is_sorted(t_node **head)
 {
 	t_node	*tmp;
-	
+
 	tmp = *head;
 	while (tmp->next != NULL)
 	{
