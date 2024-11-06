@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/05 19:25:55 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/06 16:14:36 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "push_swap.h"
-# include "Libft/libft.h"
 # include <limits.h>
+# include "push_swap.h"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -55,6 +54,7 @@ long int	ft_atoi_long(char *str);
 void		ft_free_tab(char **tab);
 int			ft_count_node(t_node **head);
 int			ft_stack_a_is_sorted(t_node **head);
+char		*ft_strdup(const char *s_src);
 
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);

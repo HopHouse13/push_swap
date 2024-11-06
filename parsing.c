@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:20:14 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/04 15:47:55 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/06 16:29:28 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ int	ft_has_other_digits(char **tab)
 	{
 		j = 0;
 		is_digit = 0;
-		if ((tab[i][j]) && (ft_is_plus_moins(tab[i][j]) == 1))
+		if ((tab[i][0]) && ((tab[i][j]) == '+' || tab[i][0] == '-'))
 			j++;
 		while (tab[i][j])
 		{
-			if (ft_isdigit(tab[i][j]))
+			if (tab[i][j] >= '0' && tab[i][j] <= '9')
 				is_digit = 1;
 			else
 				return (FAILURE);
@@ -108,7 +108,6 @@ int	ft_has_doublon(char **tab_char)
 // printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]",
 // ft_has_other_digits(tab_char), ft_has_maxs(tab_char),
 // ft_has_doublon(tab_char));
-
 int	ft_parsing(char **tab_char)
 {
 	if (ft_has_other_digits(tab_char)

@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/05 19:27:22 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/06 16:15:46 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,25 @@ int	ft_stack_a_is_sorted(t_node **head)
 		tmp = tmp->next;
 	}
 	return (SUCCESS);
+}
+
+char	*ft_strdup(const char *s_src)
+{
+	char	*s_dup;
+	size_t	i;
+
+	i = 0;
+	while (s_src[i])
+		i++;
+	s_dup = malloc(sizeof(char) * i + 1);
+	if (!s_dup)
+		return (NULL);
+	i = 0;
+	while (s_src[i])
+	{
+		s_dup[i] = s_src[i];
+		i++;
+	}
+	s_dup[i] = '\0';
+	return (s_dup);
 }
