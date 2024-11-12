@@ -6,14 +6,14 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/05 19:03:49 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/12 19:10:29 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // ft qui met les argv dans un tableau e tableau de char (brut)
-// retour 1 (FAILUIRE) >>> error, 0 (SUCCESS)>>> validé
+// retour 1 (FAILUIRE) >>> Error, 0 (SUCCESS)>>> validé
 int	main(int ac, char **av)
 {
 	char		**tab_brut;
