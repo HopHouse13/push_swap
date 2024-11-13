@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_base.c                                        :+:      :+:    :+:   */
+/*   base_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/05 18:38:36 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/13 10:40:51 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_base(t_node **head_a, t_node **head_b)
+void	ft_base_sort(t_node **head_a, t_node **head_b)
 {
 	if ((ft_count_node(head_a)) == 2)
 		ft_sort_2(head_a);

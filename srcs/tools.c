@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/06 16:15:46 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/13 18:04:11 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ long int	ft_atoi_long(char *str)
 		resultat = resultat * 10 + (str[i++] - '0');
 	return (resultat * sign);
 }
+// _____________________________________________________________________________
+// 
+// fonction pour liberer la memoire allouee aux tableaux dans tab_brut
+// 
+// -----------------------------------------------------------------------------
+// 
+// if le pointeur du tableau principal n'est pas nul -> on rentre
+// boucle tant que le sous-tableau existe -> on rentre
+// free de chaque pointeur (sous-tableau) puis on passe au suivant
+// ne pas oublier de free egalement le pointeur du tableau principal
 
 void	ft_free_tab(char **tab)
 {
@@ -45,6 +55,21 @@ void	ft_free_tab(char **tab)
 	}
 	return ;
 }
+// _____________________________________________________________________________
+// 
+// fonction qui renvoie le nombre dew nooeud dans la liste chainee en parametre.
+// 
+// -----------------------------------------------------------------------------
+//
+// 1] la fonction fait pointer tmp sur le 1er noeud de head comme *head.
+//    la fonction va manipuler tmp pour garder le pointeur de *head.
+// 2] boucle: tant que la liste chainee n'est pas terminer -> on rentre.
+//    -> count_node (initialise a 0) est incremente de 1.
+//    -> puis la fonction passe au noeud suivant en faisant prendre le pointeur
+//    de next (pointeur du noeud suivant) a tmp. (noeud actuel)
+// 3] lorsque la boucle se termine, la fonction a parcouru l'entierete
+//    des noeuds de la liste chaine et donc la valeur de count_node est
+//    le bon nombre de noeuds. cette variable sera retournee.
 
 int	ft_count_node(t_node **head)
 {

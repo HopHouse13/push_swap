@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/06 16:14:36 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/13 10:54:53 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ char		*ft_strdup(const char *s_src);
 //initalisation_stack
 void		ft_init_list(char **tab_brut, t_node **head);
 void		ft_init_head(long int nbr, int index, t_node **head);
-void		ft_first_initialisation(long int nbr, int index, t_node **head);
+void		ft_initialisation_linked_list(long int nbr, int index,
+				t_node **head);
 void		ft_free_lists(t_node **head_a, t_node **head_b);
 void		ft_add_start(long int nbr, int index, t_node **head);
 
@@ -67,8 +68,8 @@ void		ft_add_start(long int nbr, int index, t_node **head);
 t_node		*ft_find_node_not_index_and_val_min(t_node **head);
 void		ft_initialisation_index(t_node **head);
 
-//sort_base
-void		ft_sort_base(t_node **head_a, t_node **head_b);
+//base_sort
+void		ft_base_sort(t_node **head_a, t_node **head_b);
 void		ft_sort_2(t_node **head_a);
 void		ft_sort_3(t_node **head_a, t_node **head_b);
 void		ft_sort_4(t_node **head_a, t_node **head_b);

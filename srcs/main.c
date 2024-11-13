@@ -6,13 +6,13 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:50:35 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/12 19:10:29 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/13 09:48:52 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// ft qui met les argv dans un tableau e tableau de char (brut)
+// ft qui met les argv dans un tableau de tableau de char (brut)
 // retour 1 (FAILUIRE) >>> Error, 0 (SUCCESS)>>> validé
 int	main(int ac, char **av)
 {
