@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/13 18:04:11 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/14 15:06:40 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	ft_free_tab(char **tab)
 // 
 // -----------------------------------------------------------------------------
 //
-// 1] la fonction fait pointer tmp sur le 1er noeud de head comme *head.
-//    la fonction va manipuler tmp pour garder le pointeur de *head.
+// 1] la fonction fait pointer tmp sur le 1er noeud comme le pointeur head.
+//    la fonction va manipuler tmp pour conserver le pointeur head.
 // 2] boucle: tant que la liste chainee n'est pas terminer -> on rentre.
 //    -> count_node (initialise a 0) est incremente de 1.
 //    -> puis la fonction passe au noeud suivant en faisant prendre le pointeur
@@ -85,6 +85,21 @@ int	ft_count_node(t_node **head)
 	}
 	return (count_node);
 }
+
+// _____________________________________________________________________________
+// 
+// fonction qui controle si les noeud de la liste chainee passee en parametre
+// est dans l'ordre croissant par rapport a la valeur de la variable index.
+// 
+// -----------------------------------------------------------------------------
+//
+// boucle: tant que la fonction n'est pas au dernier noeud, on reste dans
+// la boucle et on avance au noeud suivant. (tmp = tmp->next)
+// -> if la valeur de index st superieur a la val de index du noeud suivant ->
+// la fonction retourne 'FAILURE' (1)
+// si la boucle se termine -> l'ensemble des noeuds ont ete compares et que
+// la totalite des noeuds sont dans l'odre croissants.
+// la fonction renvoie 'SUCCESS' (0)
 
 int	ft_stack_a_is_sorted(t_node **head)
 {

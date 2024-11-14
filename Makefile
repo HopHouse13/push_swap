@@ -6,7 +6,7 @@
 #    By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 14:02:40 by pbret             #+#    #+#              #
-#    Updated: 2024/11/13 10:39:31 by ubuntu           ###   ########.fr        #
+#    Updated: 2024/11/14 16:31:30 by ubuntu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS		= $(SRCS_DIR)/main.c\
 			$(SRCS_DIR)/instructions_2.c\
 			$(SRCS_DIR)/base_sort.c\
 			$(SRCS_DIR)/big_sort.c\
+			$(SRCS_DIR)/control_functions.c\
 
 SRCS_DIR	= srcs
 OBJ_DIR 	= obj_push_swap
