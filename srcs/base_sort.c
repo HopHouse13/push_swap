@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/14 19:04:27 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/16 13:37:38 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // 
 // -----------------------------------------------------------------------------
 //
-// fonciton prend en charge le tri lorsque le valeur sont de 2 a 5.
+// fonction prend en charge le tri lorsque le valeur sont de 2 a 5.
 //
 
 void	ft_base_sort(t_node **head_a, t_node **head_b)
@@ -106,6 +106,8 @@ void	ft_sort_3(t_node **head_a, t_node **head_b)
 // 
 // -----------------------------------------------------------------------------
 //
+// les valeurs des lettres correspondent a l'ordre de placement dans l'alphabet.
+// exemple : a < c ou c > b
 // situation initial : 
 //
 //    ->	b a d c
@@ -118,11 +120,11 @@ void	ft_sort_3(t_node **head_a, t_node **head_b)
 // 2] push du 1er noeud de la stack_a dans la stack_b.
 //    (noeud avec le plus grand index)
 //
-//    ->  	c b a		d
+//    ->  	c b a			d
 //
 // 3] appel de la ft_sort_3 pour trier les 3 noeuds de la stack_a.
 //
-//    ->  	a b c		d
+//    ->  	a b c			d
 //
 // 4] appel de ft_pa pour push le noeud de la stack_a a la stack_b.
 //
@@ -132,6 +134,7 @@ void	ft_sort_3(t_node **head_a, t_node **head_b)
 //
 //    ->	a b c d
 //
+
 void	ft_sort_4(t_node **head_a, t_node **head_b)
 {
 	ft_rotates_for_max_index_first(head_a, STACK_A);
@@ -142,16 +145,54 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 }
 // _____________________________________________________________________________
 // 
-// fonction de tri de 3 noeuds.
+// fonction de tri de 5 noeuds.
 // 
 // -----------------------------------------------------------------------------
 //
-// 1)	ft_rotates_for_max_index_first(x2) pour rotate et push(x2) les 2 plus grands index en head_b
-//		ft_rotates_for_max_index_first est use pour optimiser les rotations (rotate ou reverse rotate)		
-//		selon la position du node en question et le debut de la chainee listee
-// 2)	ft_sort_3 trie head_a avec une optimisation pour les ft_sa qui devient
-//		ft_ss si besoin de swap head_b pour avoir la plus grande valeur au 1er node
-//3)	
+// les valeurs des lettres correspondent a l'ordre de placement dans l'alphabet.
+// exemple : a < c ou c > b
+// situation initial : 
+//
+//    ->	b a e c d
+//
+// 1] appel de la ft_rotates_for_max_index_first pr avoir le noeud avec l'index
+//    le plus grand en premiere position.
+//
+//    ->	e c d b a
+//
+// 2] push du 1er noeud de la stack_a dans la stack_b.
+//    (noeud avec le plus grand index)
+//
+//    ->  	c d b a			e
+
+// 3] 2eme appel de la ft_rotates_for_max_index_first dans la stack_a pour avoir
+//    le noeud avec l'index le 2eme plus grand en premiere position.
+//
+//    ->  	d b a c			e
+//
+// 4] push du 1er noeud de la stack_a dans la stack_b.
+//    (noeud avec le 2eme plus grand index)
+//
+//    ->  	b a c			d e
+//
+// 5] appel de la ft_sort_3 pour trier les 3 noeuds de la stack_a.
+//
+//    ->  	a b c			d e
+//
+// 6] appel de la ft_rotates_for_max_index_first dans la stack_b pour avoir
+//    le noeud avec l'index le 2eme plus grand en premiere position.
+//
+//    ->  	a b c			e d
+//
+// 7] appel de ft_pa(x2) pour push les noeuds de la stack_a a la stack_b.
+//
+//    ->	d e a b c
+//
+// 8] appel de ft_ra(x2) pour rotate la stack_a pour obtenir une stack_a
+//    commencant par le noeud avec la plus petite valeur.
+//
+//    ->	a b c d e
+//	
 
 void	ft_sort_5(t_node **head_a, t_node **head_b)
 {

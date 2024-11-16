@@ -6,7 +6,7 @@
 #    By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 14:02:40 by pbret             #+#    #+#              #
-#    Updated: 2024/11/14 16:31:30 by ubuntu           ###   ########.fr        #
+#    Updated: 2024/11/16 13:29:51 by ubuntu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ SRCS		= $(SRCS_DIR)/main.c\
 			$(SRCS_DIR)/optimisation_rotate.c\
 			$(SRCS_DIR)/split_argv.c\
 			$(SRCS_DIR)/moves_stack.c\
-			$(SRCS_DIR)/instructions.c\
-			$(SRCS_DIR)/instructions_1.c\
-			$(SRCS_DIR)/instructions_2.c\
+			$(SRCS_DIR)/instructions/instructions.c\
+			$(SRCS_DIR)/instructions/instructions_1.c\
+			$(SRCS_DIR)/instructions/instructions_2.c\
 			$(SRCS_DIR)/base_sort.c\
 			$(SRCS_DIR)/big_sort.c\
-			$(SRCS_DIR)/control_functions.c\
+			$(SRCS_DIR)/print_list.c\
 
 SRCS_DIR	= srcs
 OBJ_DIR 	= obj_push_swap
