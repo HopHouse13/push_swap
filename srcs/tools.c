@@ -6,11 +6,28 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:35:06 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/14 15:06:40 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/17 18:19:58 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// _____________________________________________________________________________
+// 
+// fonction qui convertit et renvoie un long int a partir d'une chaine de carac.
+// 
+// -----------------------------------------------------------------------------
+// 
+// if au 1er carac chaine il ya une + ou un - -> on rentre.
+// -> if c'est un - -> sign devient -1
+// -> incrementation de l'index d'avancement
+// boucle: tant que le carac est un digits -> on rentre.
+// -> resultat (0) + *10 (pour se decaler de 1) + le carac - '0' (pour convetir
+//  carac digits en valeur)
+// '0' = +48 dans la table ASCII
+// enfin revoie de la valeur de la variable resultat (qui est une valeur par
+// des carac) * sign (qui est soit 1 ou -1. ce qui definit si la valeur est
+// negative ou positive)
 
 long int	ft_atoi_long(char *str)
 {
@@ -114,6 +131,18 @@ int	ft_stack_a_is_sorted(t_node **head)
 	}
 	return (SUCCESS);
 }
+
+// _____________________________________________________________________________
+// 
+// fonction pour dupliquer une chaine de carac rentree en parametre d'entree
+// et renvoyer la copie.
+// 
+// -----------------------------------------------------------------------------
+//
+// elle est utlisee pour remplir le tableau tab_brut lors que les parametres
+// d'entree du programme sont un parametre par valeur. le programme a besoin de
+// rentrer chaque valeur dans une chaine de carc dans un double tableau pour
+// verifier si la liste de valeurs d'entre soit bien conforme.
 
 char	*ft_strdup(const char *s_src)
 {

@@ -6,15 +6,24 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:14:27 by ubuntu            #+#    #+#             */
-/*   Updated: 2024/11/05 17:57:14 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/17 18:36:35 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// _____________________________________________________________________________
+// 
+// fonction de tri de 5 noeuds.
+// 
+// -----------------------------------------------------------------------------
+//
+//
+ 
 // 2 etapes:
 // - on trouve le plus petit index de la liste chainee que l'on stock dans "index_max"
 // - on reviens au debut pour comparer l'index de chaque node avec index_max pour trouver et renvoyer le node avec le plus grand index
+
 t_node	*ft_find_node_index_max(t_node **head)
 {
 	long int	index_max;
@@ -39,6 +48,14 @@ t_node	*ft_find_node_index_max(t_node **head)
 	return (tmp);
 }
 
+// _____________________________________________________________________________
+// 
+// fonction de tri de 5 noeuds.
+// 
+// -----------------------------------------------------------------------------
+//
+// 
+
 void	ft_rotate_with_position(t_node **head, int position, int flag)
 {
 	while (position)
@@ -50,6 +67,13 @@ void	ft_rotate_with_position(t_node **head, int position, int flag)
 		position--;
 	}
 }
+// _____________________________________________________________________________
+// 
+// fonction de tri de 5 noeuds.
+// 
+// -----------------------------------------------------------------------------
+//
+// 
 
 void	ft_reverse_rotate_with_position(t_node **head, int position, int flag)
 {
@@ -62,6 +86,13 @@ void	ft_reverse_rotate_with_position(t_node **head, int position, int flag)
 		position--;
 	}
 }
+// _____________________________________________________________________________
+// 
+// fonction de tri de 5 noeuds.
+// 
+// -----------------------------------------------------------------------------
+//
+// 
 
 void	ft_optimisation_rotate(t_node **head, int position_to_index, int flag)
 {
@@ -80,6 +111,15 @@ void	ft_optimisation_rotate(t_node **head, int position_to_index, int flag)
 	}
 	return ;
 }
+// _____________________________________________________________________________
+// 
+// fonction qui trouve le noeud avec l'index le plus eleve et qui compte a
+// quelle position du debut de la liste chainee se trouve ce noeud.
+// ft_optimisation_rotate est appelee avec ces 2 informations trouvee.
+// 
+// -----------------------------------------------------------------------------
+//
+// max est egale qu retour de ft_find_node_index_
 
 void	ft_rotates_for_max_index_first(t_node **head, int flag)
 {

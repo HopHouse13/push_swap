@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:58:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2024/11/13 10:46:50 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/17 17:56:34 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 // 		- 1 valeur -> return de la fonction
 // 		- de 2 a 5 valeurs -> ft_base_sort
 //		- de 6 a INT_MAX (2147483647)
-// 6] apres avoir ete trie, la liste chainee est liberee
+// 6] apres avoir ete triee, la liste chainee est liberee
 
 void	ft_sorting(char **tab_brut)
 {

@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:07:52 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/14 10:26:29 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/17 17:51:45 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,29 @@ void	ft_init_head(long int nbr, int index, t_node **head)
 	new->index = index;
 	*head = new;
 }
+// _____________________________________________________________________________
+// 
+// fonction utile uniquement pour les push.
+// elle malloc un nouveau noeud et initialiser l'enssemble de ses valeurs pour
+// ensuite le positionner en premiere position de la liste chainee.
+//
+// -----------------------------------------------------------------------------
+//
+// 1] if le 1er noeud n'existe pas -> appel de ft_init_head pour initialiser le
+//    le 1er noeud.
+//    si il y a au moins un noeud, le deroulement de la fonction continue.
+// 2] malloc(du type t_node) de nouveau noeud initialiser au prealable.(new)
+// 3] tmp prend la meme valeur que celle du pointeur de head.
+// 4] les variables data/index/next/prev de new sont correctement initialiser
+//    avec les parametres d'entrees et les pointeurs deja existants:
+//    new	data/index		->	parametres d'entrees
+//    new	next			->	pointe vers le 1er noeud actuel(tmp) qui
+//                              devient le 2eme
+//    new	prev			->	pointe vers NULL car new devient le 1er noeud
+//    tmp	prev			->	pointe vers new qui devient le 1er noeud
+//    head					->	pointe sur le nouveau 1er noeud
+//    (pointeur sur 1er noeud)
 
-// ft pour les pushs
 void	ft_add_start(long int nbr, int index, t_node **head)
 {
 	t_node	*new;
@@ -122,6 +143,20 @@ void	ft_initialisation_linked_list(long int nbr, int index, t_node **head)
 	tmp->next = new;
 	new->prev = tmp;
 }
+// _____________________________________________________________________________
+// 
+// fonction qui libere l'ensemble des pointeurs des deux listes chainee.
+//
+// -----------------------------------------------------------------------------
+//
+// if head_a existe -> on rentre
+// boucle: tant que head_a n'est pas au denier noeud -> on rentre
+// -> head_a* devient le pointeur du noeud suivant. (on se deplace d'un  noeud)
+// -> liberation du noeud precedent (free prev)
+// -> etc jusqu'au dernier noeud.
+// on sort de la boucle et le pointeur du dernier noeud et libere.
+//
+// exactement la meme operation est repetee pour head_b si il est existant.
 
 void	ft_free_lists(t_node **head_a, t_node **head_b)
 {
