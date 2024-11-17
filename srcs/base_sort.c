@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:43:33 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/16 13:37:38 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/17 11:15:22 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	ft_sort_2(t_node **head_a)
 // a c b -> reverse rotate (b a c) puis swap (a b c)
 //
 // a > b et a > c			-> b c a -> rotate
+//
 // b > a et b > c			-> a c b -> reverse rotate
+//
 // b < a et b < c et a < c	-> b a c -> swap
 // 
 // le 2eme parametre est la stack_b car ft_sort_3 est appele dans ft_sort_4 et 5
@@ -184,11 +186,11 @@ void	ft_sort_4(t_node **head_a, t_node **head_b)
 //
 //    ->  	a b c			e d
 //
-// 7] appel de ft_pa(x2) pour push les noeuds de la stack_a a la stack_b.
+// 7] appel de ft_pa(*2) pour push les noeuds de la stack_a a la stack_b.
 //
 //    ->	d e a b c
 //
-// 8] appel de ft_ra(x2) pour rotate la stack_a pour obtenir une stack_a
+// 8] appel de ft_ra(*2) pour rotate la stack_a pour obtenir une stack_a
 //    commencant par le noeud avec la plus petite valeur.
 //
 //    ->	a b c d e
