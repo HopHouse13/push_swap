@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"push_swap.h": "c",
-		"regex": "c",
-		"chrono": "c",
-		"variant": "c"
-	},
-	"C_Cpp.errorSquiggles": "disabled"
-}
