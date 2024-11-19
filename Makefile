@@ -29,7 +29,7 @@ SRCS		= $(SRCS_DIR)/main.c\
 SRCS_DIR	= srcs
 OBJ_DIR 	= obj_push_swap
 OBJS		= $(SRCS:$(SRCS_DIR)/%.c=$(OBJ_DIR)/%.o)
-CC			= gcc
+CC			= cc
 RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror -ggdb -c -I$(SRCS_DIR)
 NAME		= push_swap
