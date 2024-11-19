@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:20:14 by pbret             #+#    #+#             */
-/*   Updated: 2024/11/13 09:50:47 by ubuntu           ###   ########.fr       */
+/*   Updated: 2024/11/19 16:37:06 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,18 @@ int	ft_has_other_digits(char **tab)
 	while (tab[i])
 	{
 		j = 0;
-		is_digit = 0;
+		is_digit = FAILURE;
 		if ((tab[i][0]) && ((tab[i][j]) == '+' || tab[i][0] == '-'))
 			j++;
 		while (tab[i][j])
 		{
 			if (tab[i][j] >= '0' && tab[i][j] <= '9')
-				is_digit = FAILURE;
+				is_digit = SUCCESS;
 			else
 				return (FAILURE);
 			j++;
 		}
-		if (is_digit != FAILURE)
+		if (is_digit == FAILURE)
 			return (FAILURE);
 		i++;
 	}
