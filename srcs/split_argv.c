@@ -92,32 +92,3 @@ char	**ft_split_argv(char *str)
 	ft_initialisation_tab(tab, str);
 	return (tab);
 }
-
-/* int	main(int ac, char ** av)
-{
-	char	**tab;
-	int		i;
-
-	i = 0;
-	tab = NULL;
-	if(ac == 2)
-	{
-		tab = ft_split1(av[1]);
-		if (!tab)
-			return (1);
-		while (tab[i])
-		{
-			printf("%s\n", tab[i]);
-			i++;
-		}
-	}
-	i = 0;
-	if (tab != NULL)
-	{
-		while (tab[i])
-			free(tab[i++]);
-		free(tab);
-	}
-
-	return (0);
-}*/

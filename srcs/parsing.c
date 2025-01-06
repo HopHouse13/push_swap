@@ -153,8 +153,11 @@ int	ft_has_doublon(char **tab_char)
 //
 // si l'une des 3 fonctions renvoit 'FAILURE', la fonction renvoie 'FAILURE'
 // a son tour. Sinon -> 'SUCCESS'
+// La ligne "tab_char[0] == NULL" verifie si une chaine de caractere vide a ete
+// renseignee en argument d'entree de push_swap. si c'est le cas ft_parsing
+// renvoie egalement error.
 //
-// Un printf qui affiche clairement le resultat de chaque fonction:
+// Voici un printf qui affiche clairement le resultat de chaque fonction:
 //
 // printf("ft_has_other_digits[%d]\tft_has_maxs[%d]\tft_has_doublon[%d]",
 // ft_has_other_digits(tab_char), ft_has_maxs(tab_char),
@@ -164,7 +167,8 @@ int	ft_parsing(char **tab_char)
 {
 	if (ft_has_other_digits(tab_char) == FAILURE
 		|| ft_has_maxs(tab_char) == FAILURE
-		|| ft_has_doublon(tab_char) == FAILURE)
+		|| ft_has_doublon(tab_char) == FAILURE
+		|| tab_char[0] == NULL)
 		return (FAILURE);
 	return (SUCCESS);
 }
